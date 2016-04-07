@@ -29,7 +29,7 @@
     }
 
     // Open editing dialog.
-    $('#cwrc-eap-edit-link').click(function (e) {
+    $('.cwrc-eap-edit-link').click(function (e) {
       e.preventDefault();
       switch (settings.entity_type) {
         case 'person':

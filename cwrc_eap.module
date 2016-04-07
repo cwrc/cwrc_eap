@@ -104,7 +104,7 @@ function cwrc_eap_preprocess_menu_local_task(&$variables) {
     drupal_add_js(array('cwrc_eap' => $settings), 'setting');
 
     // Inject ID attribute into the render element.
-    $variables['element']['#link']['options']['attributes']['id'] = 'cwrc-eap-edit-link';
-    $variables['element']['#link']['localized_options']['attributes']['id'] = 'cwrc-eap-edit-link';
+    $variables['element']['#link']['options']['attributes']['class'][] = 'cwrc-eap-edit-link';
+    $variables['element']['#link']['localized_options']['attributes']['class'][] = 'cwrc-eap-edit-link';
   }
 }
