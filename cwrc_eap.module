@@ -28,8 +28,7 @@ function cwrc_eap_edit_entity() {
  */
 function cwrc_eap_edit_entity_access($object) {
   module_load_include('inc', 'islandora_cwrc_writer', 'includes/utilities');
-  $valid_types = islandora_cwrc_writer_valid_entity_types();
-  if (empty(array_intersect($valid_types, $object->models))) {
+  if (!islandora_cwrc_writer_valid_entity_type(islandora_cwrc_writer_get_entity_type($object))) {
     return false;
   } else {
     return islandora_object_manage_access_callback(
