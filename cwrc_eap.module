@@ -1,5 +1,7 @@
 <?php
 
+module_load_include('inc', 'cwrc_eap', 'cwrc_eap.api');
+
 /**
  * Implements hook_menu().
  */
