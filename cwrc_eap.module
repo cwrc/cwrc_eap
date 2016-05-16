@@ -18,6 +18,82 @@ function cwrc_eap_menu() {
 }
 
 /**
+ * Implements hook_theme().
+ */
+function cwrc_eap_theme($existing, $type, $theme, $path) {
+  return array(
+    // Full EAP template callback, wraps several others from below.
+    'cwrc_eap' => array(
+      'template' => 'templates/cwrc-eap',
+      'variables' => array(
+
+        // Generic information elements.
+        'object' => null,
+        'project' => null,
+        'image' => null,
+        'summary' => null,
+
+        // Slider element for this EAP.
+        'slider' => array(),
+
+        // Info is a renderable array of one or more "cwrc_eap_info" elements.
+        'info_record' => array(),
+        'info_identity' => array(),
+        'info_description' => array(),
+
+        // Associations is a renderable array of one or more
+        // "cwrc_eap_association" elements.
+        'associations_person' => array(),
+        'associations_place' => array(),
+        'associations_organization' => array(),
+
+        // Materials is a renderable array of one or more "cwrc_eap_material"
+        // elements.
+        'materials' => array(),
+      ),
+    ),
+
+    // Generic info element wrapper.
+    'cwrc_eap_info' => array(
+      'template' => 'templates/cwrc-eap-info',
+      'variables' => array(
+        'label' => null,
+        'elements' => array(),
+      ),
+    ),
+
+    // Generic materials wrapper.
+    'cwrc_eap_material' => array(
+      'template' => 'templates/cwrc-eap-material',
+      'variables' => array(
+        'label' => null,
+        'elements' => array(),
+      ),
+    ),
+
+    // Generic associations wrapper.
+    'cwrc_eap_association' => array(
+      'template' => 'templates/cwrc-eap-association',
+      'variables' => array(
+        'label' => null,
+        'elements' => array(),
+      ),
+    ),
+  );
+}
+
+/**
+ * Adds a theme hook suggestion for allowing custom templates for different
+ * EAPs.
+ */
+function cwrc_eap_preprocess_cwrc_eap(&$variables) {
+  $models = array_intersect(_cwrc_eap_get_models(), $variables['object']->models);
+  $model = reset($models);
+  $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($model));
+  $variables['theme_hook_suggestions'][] = 'cwrc_eap__' . strtolower(drupal_clean_css_identifier($model, array(':' => '_', '-' => '_', ' ' => '_', '/' => '_', '[' => '_', ']' => '')));
+}
+
+/**
  * Page callback, just dumps an error message, as editing is all javascript
  * based for this.
  */
@@ -109,4 +185,174 @@ function cwrc_eap_preprocess_menu_local_task(&$variables) {
     $variables['element']['#link']['options']['attributes']['class'][] = 'cwrc-eap-edit-link';
     $variables['element']['#link']['localized_options']['attributes']['class'][] = 'cwrc-eap-edit-link';
   }
+}
+
+/**
+ * Implements hook_islandora_view_object().
+ */
+function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $page_size = null) {
+  $build = array();
+  $cmodels = array_intersect(_cwrc_eap_get_models(), $object->models);
+  if (count($cmodels) > 0) {
+
+    // For now we assume that the first cmodel is the one we should use for
+    // rendering the object, may need to revisit though.
+    $cmodel = reset($cmodels);
+
+    // Get material and connections from XML database.
+    $connections = json_decode(cwrc_module_cwrc_eap_xmldb_json(url('islandora/object/' . $object->id)), true);
+    $build = array(
+      '#theme' => 'cwrc_eap',
+      '#object' => $object,
+    );
+
+    // Get the parent project (default to cwrc commons if none is found).
+    $project = _cwrc_projects_get_project($object->id);
+    if (!$project) {
+      $nid = variable_get('cwrc_eap_default_project', false);
+      if ($nid) {
+        $project = node_load($nid);
+      }
+    }
+    $build['#project'] = $project;
+
+    // Check for TN datastream, render as image.
+    if (isset($object['TN'])) {
+      $image = array(
+        '#theme' => 'image',
+        '#path' => url('islandora/object/' . $object->id . '/datastream/TN/view'),
+        '#alt' => t('@object thumbnail', array('@object' => $object->label)),
+        '#attributes' => array(),
+      );
+      $build['#image'] = render($image);
+    }
+
+    // Check for DC datastream, use description if found.
+    if (isset($object['DC'])) {
+      $dc_doc = new DOMDocument();
+      $dc_doc->loadXML($object['DC']->content);
+      $xpath = new DOMXPath($dc_doc);
+      $xpath->registerNamespace('dc', 'http://purl.org/dc/elements/1.1/');
+      $xpath->registerNamespace('oai_dc', 'http://www.openarchives.org/OAI/2.0/oai_dc/');
+      $desc_node = $xpath->evaluate('/oai_dc:dc/dc:desc/text()');
+      $build['#description'] = $desc_node->item(0)->nodeValue;
+    }
+
+    // Setup other arrays before passing to preprocessor.
+    $build['#slider'] = array();
+    $build['#info_record'] = array();
+    $build['#info_identity'] = array();
+    $build['#info_description'] = array();
+    $build['#associations_person'] = array();
+    $build['#associations_place'] = array();
+    $build['#associations_organization'] = array();
+    $build['#materials'] = array();
+
+    // Route to appropriate additional handler here.
+    switch ($cmodel) {
+      case 'cwrc:person-entityCModel':
+        _cwrc_eap_build_person($build, $connections);
+        break;
+      case 'cwrc:organization-entityCModel':
+        _cwrc_eap_build_organization($build, $connections);
+        break;
+      case 'cwrc:place-entityCModel':
+        _cwrc_eap_build_place($build, $connections);
+        break;
+    }
+  }
+  return render($build);
+}
+
+/**
+ * Helper function to perform additional preprocessing for person entities.
+ *
+ * @param  array &$build      The finished build array, should be modified
+ *                             directly by this function.
+ * @param  array $connections The connection information from the XML db.
+ */
+function _cwrc_eap_build_person(&$build, $connections) {
+  $object = $build['#object'];
+  $project = $build['#project'];
+
+  // Get xquery for the "PERSON" datastream.
+  $xml = new SimpleXMLElement($object['PERSON']->content);
+
+  // Get info arrays.
+  $recordInfo = $xml->person->recordInfo;
+  $identity = $xml->person->identity;
+  $description = $xml->person->description;
+
+  // Access conditions.
+  $build['#info_record']['accessConditions'] = array(
+    '#theme' => 'cwrc_eap_info',
+    '#label' => t('Access Conditions'),
+    '#elements' => $recordInfo->accessCondition->attributes()['type'][0],
+  );
+
+  // Origin info (contributing projects).
+  $build['#info_record']['originInfo'] = array(
+    '#theme' => 'cwrc_eap_info',
+    '#label' => t('Contributing Project(s)'),
+    '#elements' => array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#title' => null,
+      '#attributes' => array(),
+    ),
+  );
+  foreach ($recordInfo->originInfo->projectId as $project) {
+    $build['#info_record']['originInfo']['#elements']['#items'][] = $project[0];
+  }
+
+  // Person types.
+  $build['#info_identity']['preferredForm'] = array(
+    '#theme' => 'cwrc_eap_info',
+    '#label' => t('Preferred Name(s)'),
+    '#elements' => array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#title' => null,
+      '#attributes' => array(),
+    ),
+  );
+  foreach ($identity->preferredForm->namePart as $namePart) {
+    $build['#info_identity']['preferredForm']['#elements']['#items'][] = $namePart[0] . ' (<em>' . $namePart->attributes()['partType'][0] . '</em>)';
+  }
+}
+
+/**
+ * Helper function to perform additional preprocessing for organization
+ * entities.
+ *
+ * @param  array &$build      The finished build array, should be modified
+ *                            directly by this function.
+ * @param  array $connections The connection information from the XML db.
+ */
+function _cwrc_eap_build_organization(&$build, $connections) {
+  $object = $build['#object'];
+  $project = $build['#project'];
+}
+
+/**
+ * Helper function to perform additional preprocessing for place entities.
+ *
+ * @param  array &$build      The finished build array, should be modified
+ *                            directly by this function.
+ * @param  array $connections The connection information from the XML db.
+ */
+function _cwrc_eap_build_place(&$build, $connections) {
+  $object = $build['#object'];
+  $project = $build['#project'];
+}
+
+function _cwrc_eap_get_models() {
+  static $models = array(
+    'cwrc:person-entityCModel',
+    'cwrc:organization-entityCModel',
+    'cwrc:place-entityCModel',
+  );
+  return $models;
 }

@@ -1,0 +1,52 @@
+<?xml-model href="http://cwrc.ca/schemas/entities.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"
+?>
+<entity>
+  <place>
+    <recordInfo>
+      <accessCondition type="use and reproduction">Use of this public-domain resource is governed by the
+
+        <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Attribution-NonCommercial 4.0 International License
+</a>
+        .</accessCondition>
+      <originInfo>
+        <recordChangeDate>2016-05-07</recordChangeDate>
+        <projectId>GeoNames</projectId>
+      </originInfo>
+      <placeTypes>
+        <placeType>currentHumanPlace</placeType>
+      </placeTypes>
+    </recordInfo>
+    <identity>
+      <preferredForm>
+        <namePart>Ft McMurray</namePart>
+      </preferredForm>
+      <variantForms>
+        <variant>
+          <namePart>Fort McMurray</namePart>
+        </variant>
+      </variantForms>
+      <sameAs cert="4">http://viaf.org/viaf/158195478</sameAs>
+    </identity>
+    <description>
+      <existDates>
+        <dateSingle cert="1">
+          <standardDate qualifier="approximate">2006-05-02</standardDate>
+          <dateType>establishment</dateType>
+          <note>This is approximate in every way.</note>
+        </dateSingle>
+      </existDates>
+      <factuality>real</factuality>
+      <latitude>56.7264</latitude>
+      <longitude>-111.3803</longitude>
+      <featureClass>Populated Place Feature</featureClass>
+      <countryName>Canada</countryName>
+      <firstAdministrativeDivision>Alberta</firstAdministrativeDivision>
+      <elevation>260</elevation>
+      <timeZoneOffset>-6.0</timeZoneOffset>
+      <descriptiveNotes>
+        <note>This is a description of the resource we are looking at you guys, seriously, this is it.
+</note>
+      </descriptiveNotes>
+    </description>
+  </place>
+</entity>

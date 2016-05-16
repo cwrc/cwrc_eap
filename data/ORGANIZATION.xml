@@ -1,0 +1,42 @@
+<entity>
+  <organization>
+    <recordInfo>
+      <accessCondition type="use and reproduction"/>
+      <orgTypes>
+        <orgType>club or society</orgType>
+        <orgType>political</orgType>
+      </orgTypes>
+      <originInfo>
+        <projectId>eccji</projectId>
+        <projectId>orlando</projectId>
+      </originInfo>
+    </recordInfo>
+    <identity>
+      <preferredForm>
+        <namePart>Lorem Epsom Salt Company</namePart>
+      </preferredForm>
+      <variantForms>
+        <variant>
+          <namePart>Lorem Corp.</namePart>
+          <authorizedBy>
+            <projectId/>
+          </authorizedBy>
+        </variant>
+      </variantForms>
+      <sameAs cert="4">http://viaf.org/viaf/128949090</sameAs>
+    </identity>
+    <description>
+      <existDates>
+        <dateSingle cert="1">
+          <standardDate qualifier="approximate">2006-05-03</standardDate>
+          <dateType>establishment</dateType>
+          <note>We all liked trains a lot around that place.</note>
+        </dateSingle>
+      </existDates>
+      <factuality>real</factuality>
+      <descriptiveNotes>
+        <note>Web development specialists.</note>
+      </descriptiveNotes>
+    </description>
+  </organization>
+</entity>
