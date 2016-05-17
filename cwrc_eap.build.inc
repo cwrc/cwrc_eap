@@ -53,7 +53,11 @@ function _cwrc_eap_build_person(&$build, $connections) {
   // Preferred names.
   $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
   foreach ($identity->preferredForm->namePart as $namePart) {
-    $build['#info_identity']['preferredForm']['#elements']['#items'][] = $namePart . ' (<em>' . _cwrc_eap_map_name_type($namePart['partType']) . '</em>)';
+    $content = (string) $namePart;
+    if (isset($namePart['partType'])) {
+      $content .= ' (<em>' . _cwrc_eap_map_name_type($namePart['partType']) . '</em>)';
+    }
+    $build['#info_identity']['preferredForm']['#elements']['#items'][] = $content;
   }
 
   // Display label.
