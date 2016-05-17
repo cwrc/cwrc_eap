@@ -2,14 +2,25 @@
   "query_URI": "http://www.geonames.org/6251999",
   "material": {
     "entries_about": [],
-    "bilbiographic_about": [],
+    "bilbiographic_about": [
+      "islandora:3184f229-f435-4158-ae73-858714339624",
+      "islandora:221d956a-1840-4b71-850b-8efa3313787e",
+      "islandora:b8022860-9b2c-46d2-b986-eaa2d04808b5",
+      "islandora:3184f229-f435-4158-ae73-858714339624",
+      "islandora:221d956a-1840-4b71-850b-8efa3313787e",
+      "islandora:b8022860-9b2c-46d2-b986-eaa2d04808b5"
+    ],
     "entries_mentioning": [
       "islandora:3184f229-f435-4158-ae73-858714339624",
       "islandora:221d956a-1840-4b71-850b-8efa3313787e",
       "islandora:b8022860-9b2c-46d2-b986-eaa2d04808b5"
     ],
     "bilbiographic_related": [],
-    "multimedia": []
+    "multimedia": [
+      "islandora:3184f229-f435-4158-ae73-858714339624",
+      "islandora:221d956a-1840-4b71-850b-8efa3313787e",
+      "islandora:b8022860-9b2c-46d2-b986-eaa2d04808b5"
+    ]
   },
   "connections": {
     "coMentionPerson": [
