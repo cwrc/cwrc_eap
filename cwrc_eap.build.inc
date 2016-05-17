@@ -11,13 +11,25 @@ function _cwrc_eap_build_person(&$build, $connections) {
   $object = $build['#object'];
   $project = $build['#project'];
 
-  // Get xquery for the "PERSON" datastream.
+  // Get SimpleXMLElement for the "PERSON" datastream.
   $xml = new SimpleXMLElement($object['PERSON']->content);
 
   // Get info arrays.
   $recordInfo = $xml->person->recordInfo;
   $identity = $xml->person->identity;
   $description = $xml->person->description;
+
+  // Base item list for use below.
+  $list_base = array(
+    '#theme' => 'cwrc_eap_info',
+    '#elements' => array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#title' => null,
+      '#attributes' => array(),
+    ),
+  );
 
   // Access conditions.
   $build['#info_record']['accessConditions'] = array(
@@ -27,230 +39,185 @@ function _cwrc_eap_build_person(&$build, $connections) {
   );
 
   // Origin info (contributing projects).
-  $build['#info_record']['originInfo'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Contributing Project(s)'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
+  $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
   foreach ($recordInfo->originInfo->projectId as $project) {
     $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
   }
 
   // Person types.
-  $build['#info_record']['personTypes'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Person Type(s)'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
+  $build['#info_record']['personTypes'] = array('#label' => t('Person Type(s)')) + $list_base;
   foreach ($recordInfo->personTypes->personType as $personType) {
     $build['#info_record']['personTypes']['#elements']['#items'][] = _cwrc_eap_map_person_type($personType);
   }
 
   // Preferred names.
-  $build['#info_identity']['preferredForm'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Preferred Name(s)'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
+  $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
   foreach ($identity->preferredForm->namePart as $namePart) {
     $build['#info_identity']['preferredForm']['#elements']['#items'][] = $namePart . ' (<em>' . _cwrc_eap_map_name_type($namePart['partType']) . '</em>)';
   }
 
+  // Display label.
+  if (isset($identity->displayLabel)) {
+    $build['#info_identity']['displayLabel'] = array(
+      '#theme' => 'cwrc_eap_info',
+      '#label' => t('Display Label'),
+      '#elements' => (string) $identity->displayLabel,
+    );
+  }
+
   // Variant names.
-  $build['#info_identity']['variantForms'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Variant Name(s)'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($identity->variantForms->variant as $variantForm) {
-    $name = '<strong>' . t('Variant Type') . '</strong>: ' . $variantForm->variantType . '<br />';
-    $name .= $variantForm->namePart . ' (<em>' . _cwrc_eap_map_name_type($variantForm->namePart['partType']) . '</em>)';
-    $build['#info_identity']['variantForms']['#elements']['#items'][] = $name;
+  if (isset($identity->variantForms)) {
+    $build['#info_identity']['variantForms'] = array('#label' => t('Variant Name(s)')) + $list_base;
+    foreach ($identity->variantForms->variant as $variantForm) {
+      // Variant names is a complex data-type, build in portions then render.
+      $content = array();
+      $content['namePart'] = array(
+        '#markup' => $variantForm->namePart,
+        '#prefix' => '<div class="info-part">',
+        '#suffix' => '</div>',
+      );
+
+      // Has a partType definition.
+      if (isset($variantForm->namePart['partType'])) {
+        $content['namePart']['#markup'] .= ' (<em>' . _cwrc_eap_map_name_type($variantForm->namePart['partType']) . '</em>)';
+      }
+
+      // Variant type.
+      if (isset($variantForm->variantType)) {
+        $content['variantType'] = array(
+          '#markup' => '<strong>' . t('Variant Type') . '</strong><br />' . _cwrc_eap_map_variant_type($variantForm->variantType),
+          '#prefix' => '<div class="info-part">',
+          '#suffix' => '</div>',
+        );
+      }
+
+      // Prefferred by projects.
+      if (isset($variantForm->authorizedBy)) {
+        $content['authorizedBy'] = array(
+          '#theme' => 'item_list',
+          '#attributes' => array(),
+          '#items' => array(),
+          '#prefix' => '<div class="info-part"><strong>' . t('Prefferred By') . '</strong>',
+          '#suffix' => '</div>',
+        );
+        foreach ($variantForm->authorizedBy as $authorizedBy) {
+          $content['authorizedBy']['#items'][] = $authorizedBy->projectId;
+        }
+      }
+      $build['#info_identity']['variantForms']['#elements']['#items'][] = render($content);
+    }
   }
 
   // Same as.
-  $build['#info_identity']['sameAs'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Same As'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($identity->sameAs as $sameAs) {
-    if (valid_url($sameAs, true)) {
-      $content = l($sameAs, $sameAs);
-    } else {
-      $content = (string) $sameAs;
-    }
+  if (isset($identity->sameAs)) {
+    $build['#info_identity']['sameAs'] = array('#label' => t('Same As')) + $list_base;
+    foreach ($identity->sameAs as $sameAs) {
+      if (valid_url($sameAs, true)) {
+        $content = l($sameAs, $sameAs);
+      } else {
+        $content = (string) $sameAs;
+      }
 
-    $content .= ' (<em>' . _cwrc_eap_map_certainty($sameAs['cert']) . '</em>)';
-    $build['#info_identity']['sameAs']['#elements']['#items'][] = $content;
+      // Certainty was specified.
+      if (isset($sameAs['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($sameAs['cert']) . '</em>)';
+      }
+      $build['#info_identity']['sameAs']['#elements']['#items'][] = $content;
+    }
   }
 
   // Date(s) of existence.
-  $build['#info_description']['existDates'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Date(s) of Existence'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->existDates->dateSingle as $dateSingle) {
-    $content = '<strong>' . _cwrc_eap_map_date_type($dateSingle->dateType) . '</strong>: ';
-    $content .= $dateSingle->standardDate;
-    $content .= ' (<em>' . _cwrc_eap_map_certainty($dateSingle['cert']) . '</em>)';
-    if (!empty($dateSingle->note)) {
-      $content .= '<p><strong>Note:</strong> ' . $dateSingle->note . '</p>';
+  if (isset($description->existDates)) {
+    $build['#info_description']['existDates'] = array('#label' => t('Date(s) of Existence')) + $list_base;
+    foreach ($description->existDates->dateSingle as $dateSingle) {
+      $content = '<strong>' . _cwrc_eap_map_date_type($dateSingle->dateType) . '</strong>: ';
+      $content .= $dateSingle->standardDate;
+      if (isset($dateSingle['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($dateSingle['cert']) . '</em>)';
+      }
+      if (isset($dateSingle->note)) {
+        $content .= '<p><strong>Note:</strong> ' . $dateSingle->note . '</p>';
+      }
+      $build['#info_description']['existDates']['#elements']['#items'][] = render($content);
     }
-    $build['#info_description']['existDates']['#elements']['#items'][] = $content;
   }
 
   // Factuality.
-  $build['#info_description']['factuality'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Factuality'),
-    '#elements' => array(
-      '#markup' => _cwrc_eap_map_factuality($description->factuality),
-    ),
-  );
+  if (isset($description->factuality)) {
+    $build['#info_description']['factuality'] = array(
+      '#theme' => 'cwrc_eap_info',
+      '#label' => t('Factuality'),
+      '#elements' => array(
+        '#markup' => _cwrc_eap_map_factuality($description->factuality),
+      ),
+    );
+  }
 
   // Gender(s).
-  $build['#info_description']['genders'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Gender(s)'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->genders->gender as $gender) {
-    $content = (string) $gender;
-    $content .= ' (<em>' . _cwrc_eap_map_certainty($gender->attributes()['cert']) . '</em>)';
-    $build['#info_description']['genders']['#elements']['#items'][] = $content;
+  if (isset($description->genders)) {
+    $build['#info_description']['genders'] = array('#label' => t('Gender(s)')) + $list_base;
+    foreach ($description->genders->gender as $gender) {
+      $content = (string) $gender;
+      if (isset($gender['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($gender['cert']) . '</em>)';
+      }
+      $build['#info_description']['genders']['#elements']['#items'][] = $content;
+    }
   }
 
   // Occupation(s).
-  $build['#info_description']['occupations'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Occupation(s)'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->occupations->occupation as $occupation) {
-    $content = (string) $occupation->term;
-    $content .= ' (<em>' . _cwrc_eap_map_certainty($occupation->term['cert']) . '</em>)';
-    if (!empty($occupation->note)) {
-      $content .= '<p><strong>Note:</strong> ' . $occupation->note . '</p>';
+  if (isset($description->occupations)) {
+    $build['#info_description']['occupations'] = array('#label' => t('Occupation(s)')) + $list_base;
+    foreach ($description->occupations->occupation as $occupation) {
+      $content = (string) $occupation->term;
+      if (isset($occupation->term['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($occupation->term['cert']) . '</em>)';
+      }
+      if (isset($occupation->note)) {
+        $content .= '<p><strong>Note:</strong> ' . $occupation->note . '</p>';
+      }
+      $build['#info_description']['occupations']['#elements']['#items'][] = $content;
     }
-    $build['#info_description']['occupations']['#elements']['#items'][] = $content;
   }
 
   // Activities.
-  $build['#info_description']['activities'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Activities'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->activities->activity as $activity) {
-    $content = (string) $activity->term;
-    $content .= ' (<em>' . _cwrc_eap_map_certainty($activity->term['cert']) . '</em>)';
-    $build['#info_description']['activities']['#elements']['#items'][] = $content;
+  if (isset($description->activities)) {
+    $build['#info_description']['activities'] = array('#label' => t('Activities')) + $list_base;
+    foreach ($description->activities->activity as $activity) {
+      $content = (string) $activity->term;
+      if (isset($activity->term['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($activity->term['cert']) . '</em>)';
+      }
+      $build['#info_description']['activities']['#elements']['#items'][] = $content;
+    }
   }
 
   // Research Interests.
-  $build['#info_description']['researchInterests'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Research Interests'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->researchInterests->interest as $interest) {
-    $content = (string) $interest->term;
-    $content .= ' (<em>' . _cwrc_eap_map_certainty($interest->term['cert']) . '</em>)';
-    $build['#info_description']['researchInterests']['#elements']['#items'][] = $content;
+  if (isset($description->researchInterests)) {
+    $build['#info_description']['researchInterests'] = array('#label' => t('Research Interests')) + $list_base;
+    foreach ($description->researchInterests->interest as $interest) {
+      $content = (string) $interest->term;
+      if (isset($interest->term['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($interest->term['cert']) . '</em>)';
+      }
+      $build['#info_description']['researchInterests']['#elements']['#items'][] = $content;
+    }
   }
 
   // Descriptive Notes.
-  $build['#info_description']['descriptiveNotes'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Descriptive Notes'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->descriptiveNotes->note as $note) {
-    $build['#info_description']['descriptiveNotes']['#elements']['#items'][] = (string) $note;
+  if (isset($description->descriptiveNotes)) {
+    $build['#info_description']['descriptiveNotes'] = array('#label' => t('Descriptive Notes')) + $list_base;
+    foreach ($description->descriptiveNotes->note as $note) {
+      $build['#info_description']['descriptiveNotes']['#elements']['#items'][] = (string) $note;
+    }
   }
 
   // Related Resources.
-  $build['#info_description']['relatedResources'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Related Resources'),
-    '#elements' => array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#title' => null,
-      '#attributes' => array(),
-    ),
-  );
-  foreach ($description->relatedResources->resource as $resource) {
-    $build['#info_description']['relatedResources']['#elements']['#items'][] = (string) $resource;
+  if (isset($description->relatedResources)) {
+    $build['#info_description']['relatedResources'] = array('#label' => t('Related Resources')) + $list_base;
+    foreach ($description->relatedResources->resource as $resource) {
+      $build['#info_description']['relatedResources']['#elements']['#items'][] = (string) $resource;
+    }
   }
 }
 
@@ -318,7 +285,9 @@ function _cwrc_eap_map_person_type($key) {
 function _cwrc_eap_map_name_type($key) {
   static $map = array(
     'family' => 'Family Name',
-    'fullName' => 'Full name (inverse order)',
+    'fullName' => 'Full Name (inverse order)',
+    'fullNameInverted' => 'Full Name (inverse order)',
+    'fullNameDirect' => 'Full Name (direct order)',
     'given' => 'Given Names',
     'termsOfAddress' => 'Terms of Address',
   );
@@ -347,6 +316,28 @@ function _cwrc_eap_map_factuality($key) {
     'real' => 'Real',
     'fictional' => 'Fictional',
     'both' => 'Both',
+  );
+
+  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+}
+
+/**
+ * Helper function that statically maps keys to values for variant type selects.
+ */
+function _cwrc_eap_map_variant_type($key) {
+  static $map = array(
+    'birthName' => 'Birth Name',
+    'marriedName' => 'Married Name',
+    'indexedName' => 'Indexed Name',
+    'pseudonym' => 'Pseudonym',
+    'usedForm' => 'Used Form',
+    'nickname' => 'Nickname',
+    'religiousName' => 'Religious',
+    'royalName' => 'Royal',
+    'selfConstructedName' => 'Self Constructed',
+    'styledName' => 'Styled',
+    'titledName' => 'Titled',
+    'orlandoStandardName' => 'Orlando Standard Name',
   );
 
   return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
