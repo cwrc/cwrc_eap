@@ -198,7 +198,7 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     $cmodel = reset($cmodels);
 
     // Get material and connections from XML database.
-    $response = cwrc_eap_xmldb_json(url('islandora/object/' . $object->id), true);
+    $response = cwrc_eap_xmldb_json(url('http://commons.cwrc.ca/' . $object->id), true);
     $connections = $response['connections'];
     $materials = $response['material'];
 
