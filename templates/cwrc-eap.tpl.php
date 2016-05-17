@@ -40,27 +40,21 @@
       <h2><?php print t('Associations'); ?></h2>
 
       <?php # "Person" associations ?>
-      <?php if (count($association_person) > 0) { ?>
+      <?php if (!empty($associations_person)) { ?>
         <h3><?php print t('People'); ?></h3>
-        <?php foreach ($association_person as $association) { ?>
-          <?php print render($association); ?>
-        <?php } ?>
+        <?php print render($associations_person); ?>
       <?php } ?>
 
       <?php # "Place" associations ?>
-      <?php if (count($association_place) > 0) { ?>
+      <?php if (!empty($associations_place)) { ?>
         <h3><?php print t('Places'); ?></h3>
-        <?php foreach ($association_place as $association) { ?>
-          <?php print render($association); ?>
-        <?php } ?>
+        <?php print render($associations_place); ?>
       <?php } ?>
 
       <?php # "Organization" associations ?>
-      <?php if (count($association_organization) > 0) { ?>
+      <?php if (!empty($associations_organization)) { ?>
         <h3><?php print t('Organizations'); ?></h3>
-        <?php foreach ($association_organization as $association) { ?>
-          <?php print render($association); ?>
-        <?php } ?>
+        <?php print render($associations_organization); ?>
       <?php } ?>
 
     </div>
