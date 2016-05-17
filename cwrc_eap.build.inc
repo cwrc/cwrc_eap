@@ -5,11 +5,9 @@
  *
  * @param  array &$build      The finished build array, should be modified
  *                             directly by this function.
- * @param  array $connections The connection information from the XML db.
  */
-function _cwrc_eap_build_person(&$build, $connections) {
+function _cwrc_eap_build_person(&$build) {
   $object = $build['#object'];
-  $project = $build['#project'];
 
   // Get SimpleXMLElement for the "PERSON" datastream.
   $xml = new SimpleXMLElement($object['PERSON']->content);
@@ -35,10 +33,13 @@ function _cwrc_eap_build_person(&$build, $connections) {
   $build['#info_record']['accessConditions'] = array(
     '#theme' => 'cwrc_eap_info',
     '#label' => t('Access Conditions'),
-    '#elements' => (string) $recordInfo->accessCondition['type'],
+    '#elements' => strip_tags($recordInfo->accessCondition->asXML(), '<a>'),
   );
+  if (isset($recordInfo->accessCondition['type'])) {
+    $build['#info_record']['accessConditions']['#elements'] .= ' (' . $recordInfo->accessCondition['type'] . ')';
+  }
 
-  // Origin info (contributing projects).
+  // Contributing Project(s).
   $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
   foreach ($recordInfo->originInfo->projectId as $project) {
     $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
@@ -231,11 +232,161 @@ function _cwrc_eap_build_person(&$build, $connections) {
  *
  * @param  array &$build      The finished build array, should be modified
  *                            directly by this function.
- * @param  array $connections The connection information from the XML db.
  */
-function _cwrc_eap_build_organization(&$build, $connections) {
+function _cwrc_eap_build_organization(&$build) {
   $object = $build['#object'];
-  $project = $build['#project'];
+
+  // Get SimpleXMLElement for the "ORGANIZATION" datastream.
+  $xml = new SimpleXMLElement($object['ORGANIZATION']->content);
+
+  // Get info arrays.
+  $recordInfo = $xml->organization->recordInfo;
+  $identity = $xml->organization->identity;
+  $description = $xml->organization->description;
+
+  // Base item list for use below.
+  $list_base = array(
+    '#theme' => 'cwrc_eap_info',
+    '#elements' => array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#title' => null,
+      '#attributes' => array(),
+    ),
+  );
+
+  // Access conditions.
+  $build['#info_record']['accessConditions'] = array(
+    '#theme' => 'cwrc_eap_info',
+    '#label' => t('Access Conditions'),
+    '#elements' => strip_tags($recordInfo->accessCondition->asXML(), '<a>'),
+  );
+  if (isset($recordInfo->accessCondition['type'])) {
+    $build['#info_record']['accessConditions']['#elements'] .= ' (' . $recordInfo->accessCondition['type'] . ')';
+  }
+
+  // Contributing Project(s).
+  $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
+  foreach ($recordInfo->originInfo->projectId as $project) {
+    $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+  }
+
+  // Organization types.
+  $build['#info_record']['orgTypes'] = array('#label' => t('Organization Type(s)')) + $list_base;
+  foreach ($recordInfo->orgTypes->orgType as $orgType) {
+    $build['#info_record']['orgTypes']['#elements']['#items'][] = _cwrc_eap_map_person_type($orgType);
+  }
+
+  // Preferred names.
+  $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
+  foreach ($identity->preferredForm->namePart as $namePart) {
+    $build['#info_identity']['preferredForm']['#elements']['#items'][] = (string) $namePart;
+  }
+
+  // Variant names.
+  if (isset($identity->variantForms)) {
+    $build['#info_identity']['variantForms'] = array('#label' => t('Variant Name(s)')) + $list_base;
+    foreach ($identity->variantForms->variant as $variantForm) {
+      // Variant names is a complex data-type, build in portions then render.
+      $content = array();
+      $content['namePart'] = array(
+        '#markup' => $variantForm->namePart,
+        '#prefix' => '<div class="info-part">',
+        '#suffix' => '</div>',
+      );
+
+      // Has a partType definition.
+      if (isset($variantForm->namePart['partType'])) {
+        $content['namePart']['#markup'] .= ' (<em>' . _cwrc_eap_map_name_type($variantForm->namePart['partType']) . '</em>)';
+      }
+
+      // Variant type.
+      if (isset($variantForm->variantType)) {
+        $content['variantType'] = array(
+          '#markup' => '<strong>' . t('Variant Type') . '</strong><br />' . _cwrc_eap_map_variant_type($variantForm->variantType),
+          '#prefix' => '<div class="info-part">',
+          '#suffix' => '</div>',
+        );
+      }
+
+      // Prefferred by projects.
+      if (isset($variantForm->authorizedBy)) {
+        $content['authorizedBy'] = array(
+          '#theme' => 'item_list',
+          '#attributes' => array(),
+          '#items' => array(),
+          '#prefix' => '<div class="info-part"><strong>' . t('Prefferred By') . '</strong>',
+          '#suffix' => '</div>',
+        );
+        foreach ($variantForm->authorizedBy as $authorizedBy) {
+          $content['authorizedBy']['#items'][] = $authorizedBy->projectId;
+        }
+      }
+      $build['#info_identity']['variantForms']['#elements']['#items'][] = render($content);
+    }
+  }
+
+  // Same as.
+  if (isset($identity->sameAs)) {
+    $build['#info_identity']['sameAs'] = array('#label' => t('Same As')) + $list_base;
+    foreach ($identity->sameAs as $sameAs) {
+      if (valid_url($sameAs, true)) {
+        $content = l($sameAs, $sameAs);
+      } else {
+        $content = (string) $sameAs;
+      }
+
+      // Certainty was specified.
+      if (isset($sameAs['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($sameAs['cert']) . '</em>)';
+      }
+      $build['#info_identity']['sameAs']['#elements']['#items'][] = $content;
+    }
+  }
+
+  // Date(s) of existence.
+  if (isset($description->existDates)) {
+    $build['#info_description']['existDates'] = array('#label' => t('Date(s) of Existence')) + $list_base;
+    foreach ($description->existDates->dateSingle as $dateSingle) {
+      $content = '<strong>' . _cwrc_eap_map_date_type($dateSingle->dateType) . '</strong>: ';
+      $content .= $dateSingle->standardDate;
+      if (isset($dateSingle['cert'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_certainty($dateSingle['cert']) . '</em>)';
+      }
+      if (isset($dateSingle->note)) {
+        $content .= '<p><strong>Note:</strong> ' . $dateSingle->note . '</p>';
+      }
+      $build['#info_description']['existDates']['#elements']['#items'][] = render($content);
+    }
+  }
+
+  // Factuality.
+  if (isset($description->factuality)) {
+    $build['#info_description']['factuality'] = array(
+      '#theme' => 'cwrc_eap_info',
+      '#label' => t('Factuality'),
+      '#elements' => array(
+        '#markup' => _cwrc_eap_map_factuality($description->factuality),
+      ),
+    );
+  }
+
+  // Descriptive Notes.
+  if (isset($description->descriptiveNotes)) {
+    $build['#info_description']['descriptiveNotes'] = array('#label' => t('Descriptive Notes')) + $list_base;
+    foreach ($description->descriptiveNotes->note as $note) {
+      $build['#info_description']['descriptiveNotes']['#elements']['#items'][] = (string) $note;
+    }
+  }
+
+  // Related Resources.
+  if (isset($description->relatedResources)) {
+    $build['#info_description']['relatedResources'] = array('#label' => t('Related Resources')) + $list_base;
+    foreach ($description->relatedResources->resource as $resource) {
+      $build['#info_description']['relatedResources']['#elements']['#items'][] = (string) $resource;
+    }
+  }
 }
 
 /**
@@ -243,11 +394,39 @@ function _cwrc_eap_build_organization(&$build, $connections) {
  *
  * @param  array &$build      The finished build array, should be modified
  *                            directly by this function.
- * @param  array $connections The connection information from the XML db.
  */
-function _cwrc_eap_build_place(&$build, $connections) {
+function _cwrc_eap_build_place(&$build) {
   $object = $build['#object'];
-  $project = $build['#project'];
+
+  // Get SimpleXMLElement for the "PLACE" datastream.
+  $xml = new SimpleXMLElement($object['PLACE']->content);
+
+  // Get info arrays.
+  $recordInfo = $xml->place->recordInfo;
+  $identity = $xml->place->identity;
+  $description = $xml->place->description;
+
+  // Base item list for use below.
+  $list_base = array(
+    '#theme' => 'cwrc_eap_info',
+    '#elements' => array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#title' => null,
+      '#attributes' => array(),
+    ),
+  );
+
+  // Access conditions.
+  $build['#info_record']['accessConditions'] = array(
+    '#theme' => 'cwrc_eap_info',
+    '#label' => t('Access Conditions'),
+    '#elements' => strip_tags($recordInfo->accessCondition->asXML(), '<a>'),
+  );
+  if (isset($recordInfo->accessCondition['type'])) {
+    $build['#info_record']['accessConditions']['#elements'] .= ' (' . $recordInfo->accessCondition['type'] . ')';
+  }
 }
 
 /**
@@ -307,6 +486,8 @@ function _cwrc_eap_map_date_type($key) {
     'birth' => 'Birth',
     'death' => 'Death',
     'flourish' => 'Flourish',
+    'establishment' => 'Establishment',
+    'dissolution' => 'Dissolution',
   );
 
   return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;

@@ -303,13 +303,13 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     module_load_include('inc', 'cwrc_eap', 'cwrc_eap.build');
     switch ($cmodel) {
       case 'cwrc:person-entityCModel':
-        _cwrc_eap_build_person($build, $connections);
+        _cwrc_eap_build_person($build);
         break;
       case 'cwrc:organization-entityCModel':
-        _cwrc_eap_build_organization($build, $connections);
+        _cwrc_eap_build_organization($build);
         break;
       case 'cwrc:place-entityCModel':
-        _cwrc_eap_build_place($build, $connections);
+        _cwrc_eap_build_place($build);
         break;
     }
   }
