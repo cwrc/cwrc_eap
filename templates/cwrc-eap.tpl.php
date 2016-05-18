@@ -1,9 +1,21 @@
 <div class="<?php print $classes; ?>">
-  <div class="row">
-    <div class="slider">
-      <?php print render($slider); ?>
+  <?php if (!empty($image) || !empty($summary)) { ?>
+    <div class="row">
+      <header class="header">
+        <?php if (!empty($image)) { ?>
+          <div class="object-image">
+            <?php print render($image); ?>
+          </div>
+        <?php } ?>
+          <?php if (!empty($summary)) { ?>
+            <div class="object-summary">
+              <?php print render($summary); ?>
+            </div>
+          <?php } ?>
+      </header>
     </div>
-  </div>
+  <?php } ?>
+
   <div class="row">
 
     <?php # "Information" goes on the left ?>

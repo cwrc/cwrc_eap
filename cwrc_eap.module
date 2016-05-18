@@ -41,9 +41,6 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
         'image' => null,
         'summary' => null,
 
-        // Slider element for this EAP.
-        'slider' => array(),
-
         // Info is a renderable array of one or more "cwrc_eap_info" elements.
         'info_record' => array(),
         'info_identity' => array(),
@@ -237,11 +234,9 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
       $xpath = new DOMXPath($dc_doc);
       $xpath->registerNamespace('dc', 'http://purl.org/dc/elements/1.1/');
       $xpath->registerNamespace('oai_dc', 'http://www.openarchives.org/OAI/2.0/oai_dc/');
-      $desc_node = $xpath->evaluate('/oai_dc:dc/dc:desc/text()');
+      $desc_node = $xpath->evaluate('/oai_dc:dc/dc:description/text()');
       if ($desc_node->item(0)) {
-        $build['#description'] = $desc_node->item(0)->nodeValue;
-      } else {
-        $build['#description'] = '';
+        $build['#summary'] = $desc_node->item(0)->nodeValue;
       }
     }
 
