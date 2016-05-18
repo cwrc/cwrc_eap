@@ -1,7 +1,7 @@
 <div class="<?php print $classes ?>">
   <?php if ($image) { ?>
     <div class="image">
-      <?php print $image; ?>
+      <a href="<?php print url('islandora/object/' . $pid); ?>"><?php print $image; ?></a>
     </div>
   <?php } else { ?>
     <div class="no-image"></div>
