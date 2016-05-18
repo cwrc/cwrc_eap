@@ -113,8 +113,8 @@
 
     </div>
   </div>
-  <div class="row">
-    <?php if (count($materials) > 0) { ?>
+  <?php if (count($materials) > 0) { ?>
+    <div class="row">
       <div class="materials tabs">
         <ul>
           <?php foreach ($materials as $material) { ?>
@@ -127,6 +127,6 @@
           </div>
         <?php } ?>
       </div>
-    <?php } ?>
-  </div>
+    </div>
+  <?php } ?>
 </div>

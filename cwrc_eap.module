@@ -92,7 +92,13 @@ function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
     return;
   }
 
+  // Label.
   $variables['label'] = $object->label;
+
+  // Add cmodel classes.
+  foreach ($object->models as $cmodel) {
+    $variables['classes_array'][] = drupal_html_class($cmodel);
+  }
 
   // Check for TN datastream, render as image.
   if (isset($object['TN'])) {
