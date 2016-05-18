@@ -93,9 +93,16 @@ function render_list($v, $title, $id) {
   </div>
   <div class="row">
     <?php if (count($materials) > 0) { ?>
-      <div class="materials">
+      <div class="materials tabs">
+        <ul>
+          <?php foreach ($materials as $material) { ?>
+            <li><a href="#material-<?php print $material['type'] ?>"><?php print $material['label'] ?></a><span class="badge"><?php print count($material['elements']['#items']); ?></span></li>
+          <?php } ?>
+        </ul>
         <?php foreach ($materials as $material) { ?>
-          <?php print render($material); ?>
+          <div id="material-<?php print $material['type']; ?>">
+            <?php print render($material['elements']); ?>
+          </div>
         <?php } ?>
       </div>
     <?php } ?>

@@ -70,11 +70,54 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
     'cwrc_eap_material' => array(
       'template' => 'templates/cwrc-eap-material',
       'variables' => array(
+        'pid' => null,
+        'image' => null,
         'label' => null,
-        'elements' => array(),
+        'summary' => null,
       ),
     ),
   );
+}
+
+/**
+ * Loads object and sources appropriate data for thumbnail, label and summary.
+ */
+function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
+  try {
+    $object = islandora_object_load($variables['pid']);
+    if (!$object) {
+      return;
+    }
+  } catch (Exception $e) {
+    return;
+  }
+
+  $variables['label'] = $object->label;
+
+  // Check for TN datastream, render as image.
+  if (isset($object['TN'])) {
+    $image = array(
+      '#theme' => 'image',
+      '#path' => url('islandora/object/' . $object->id . '/datastream/TN/view'),
+      '#alt' => t('@object thumbnail', array('@object' => $object->label)),
+      '#attributes' => array(),
+    );
+    $variables['image'] = render($image);
+  }
+
+  // Check for DC datastream, use description if found.
+  if (isset($object['DC'])) {
+    $dc_doc = new DOMDocument();
+    $dc_doc->loadXML($object['DC']->content);
+
+    $xpath = new DOMXPath($dc_doc);
+    $xpath->registerNamespace('dc', 'http://purl.org/dc/elements/1.1/');
+    $xpath->registerNamespace('oai_dc', 'http://www.openarchives.org/OAI/2.0/oai_dc/');
+    $desc_node = $xpath->evaluate('/oai_dc:dc/dc:description/text()');
+    if ($desc_node->item(0)) {
+      $variables['summary'] = $desc_node->item(0)->nodeValue;
+    }
+  }
 }
 
 /**
@@ -285,9 +328,9 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     foreach ($materials as $type => $material) {
       if (count($material) > 0) {
         $build['#materials'][$type] = array(
-          '#theme' => 'cwrc_eap_material',
-          '#label' => _cwrc_eap_map_material_label($type),
-          '#elements' => array(
+          'label' => _cwrc_eap_map_material_label($type),
+          'type' => $type,
+          'elements' => array(
             '#theme' => 'item_list',
             '#type' => 'ul',
             '#attributes' => array(),
@@ -295,7 +338,8 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
           ),
         );
         foreach ($material as $item) {
-          $build['#materials'][$type]['#elements']['#items'][] = $item;
+          $content = array('#theme' => 'cwrc_eap_material', '#pid' => $item);
+          $build['#materials'][$type]['elements']['#items'][] = render($content);
         }
       }
     }
