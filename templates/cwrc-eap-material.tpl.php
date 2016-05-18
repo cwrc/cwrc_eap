@@ -12,7 +12,7 @@
     </div>
     <?php if ($summary) { ?>
       <div class="summary">
-        <?php print $summary; ?>
+        <?php print truncate_utf8($summary, 200, true, true); ?>
       </div>
     <?php } ?>
   </div>
