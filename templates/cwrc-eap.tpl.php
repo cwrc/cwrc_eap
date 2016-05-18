@@ -1,26 +1,3 @@
-<?php
-
-function render_list($v, $title, $id) {
-  print "<div id=\"assocation-" . $id . "\" class=\"associations-collapsible block\">";
-  print "<h2 class=\"collapsiblock";
-
-  if (count($v['#items']) > 5) {
-    print " collapsiblockCollapsed";
-  }
-
-  print "\"><a href=\"#association-" . $id . "\" role=\"link\">" . $title . "</a></h2>";
-  print "<div class=\"content\"";
-
-  if (count($v['#items']) > 5) {
-    print " style=\"display:none;\"";
-  }
-
-  print ">";
-  print render($v);
-  print "</div></div>";
-}
-
-?>
 <div class="<?php print $classes; ?>">
   <?php if (!empty($image) || !empty($summary)) { ?>
     <div class="row">
@@ -74,19 +51,64 @@ function render_list($v, $title, $id) {
     <div class="right">
       <h2><?php print t('Associations'); ?></h2>
 
-      <?php # "Person" associations ?>
       <?php if (!empty($associations_person)) { ?>
-        <?php render_list($associations_person, t('People'), 'people'); ?>
+      <div id="association-people" class="associations-collapsible block">
+        <h2 class="collapsiblock <?php if(count($associations_person['#items']) > 5) {
+          print " collapsiblockCollapsed";
+        }
+        ?>">
+          <a href="#association-people" role="link"><?php print t('People'); ?></a>
+        </h2>
+        <div class="content" <?php
+
+        if (count($associations_person['#items']) > 5) {
+          print "style=\"display:none;\"";
+        }
+
+        ?>>
+          <?php print render($associations_person); ?>
+        </div>
+      </div>
       <?php } ?>
 
-      <?php # "Place" associations ?>
       <?php if (!empty($associations_place)) { ?>
-        <?php render_list($associations_place, t('Places'), 'places'); ?>
+      <div id="association-places" class="associations-collapsible block">
+        <h2 class="collapsiblock <?php if(count($associations_place['#items']) > 5) {
+          print " collapsiblockCollapsed";
+        }
+        ?>">
+          <a href="#association-places" role="link"><?php print t('Places'); ?></a>
+        </h2>
+        <div class="content" <?php
+
+        if (count($associations_place['#items']) > 5) {
+          print "style=\"display:none;\"";
+        }
+
+        ?>>
+          <?php print render($associations_place); ?>
+        </div>
+      </div>
       <?php } ?>
 
-      <?php # "Organization" associations ?>
       <?php if (!empty($associations_organization)) { ?>
-        <?php render_list($associations_organization, t('Organizations'), 'organizations'); ?>
+      <div id="association-orgs" class="associations-collapsible block">
+        <h2 class="collapsiblock <?php if(count($associations_organization['#items']) > 5) {
+          print " collapsiblockCollapsed";
+        }
+        ?>">
+          <a href="#association-orgs" role="link"><?php print t('Organizations'); ?></a>
+        </h2>
+        <div class="content" <?php
+
+        if (count($associations_organization['#items']) > 5) {
+          print "style=\"display:none;\"";
+        }
+
+        ?>>
+          <?php print render($associations_organization); ?>
+        </div>
+      </div>
       <?php } ?>
 
     </div>
