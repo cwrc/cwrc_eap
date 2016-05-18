@@ -129,7 +129,6 @@ function cwrc_eap_libraries_info() {
       'download url' => 'http://github.com/cwrc/CWRC-Dialogs',
       'files' => array(
         'js' => array(
-          'js/lib/jquery-1.11.0.js',
           'js/lib/jquery-ui-1.10.4.custom.js',
           'js/lib/knockout-2.3.0.js',
           'js/lib/bootstrap.js',
@@ -186,6 +185,13 @@ function cwrc_eap_preprocess_menu_local_task(&$variables) {
  * Implements hook_islandora_view_object().
  */
 function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $page_size = null) {
+  drupal_add_js('var $ = jQuery;', array(
+    'type' => 'inline',
+    'scope' => 'header',
+    'every_page' => TRUE,
+    'requires_jquery' => TRUE
+  ));
+
   $build = array();
   $cmodels = array_intersect(_cwrc_eap_get_models(), $object->models);
   if (count($cmodels) > 0) {
