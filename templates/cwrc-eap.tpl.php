@@ -57,7 +57,10 @@
           print " collapsiblockCollapsed";
         }
         ?>">
-          <a href="#association-people" role="link"><?php print t('People'); ?></a>
+          <a href="#association-people" role="link">
+            <?php print t('People'); ?>
+            <span class="badge"><?php print count($associations_person['#items']); ?></span>
+          </a>
         </h2>
         <div class="content" <?php
 
@@ -77,7 +80,10 @@
           print " collapsiblockCollapsed";
         }
         ?>">
-          <a href="#association-places" role="link"><?php print t('Places'); ?></a>
+          <a href="#association-places" role="link">
+            <?php print t('Places'); ?>
+            <span class="badge"><?php print count($associations_place['#items']); ?></span>
+          </a>
         </h2>
         <div class="content" <?php
 
@@ -97,7 +103,10 @@
           print " collapsiblockCollapsed";
         }
         ?>">
-          <a href="#association-orgs" role="link"><?php print t('Organizations'); ?></a>
+          <a href="#association-orgs" role="link">
+            <?php print t('Organizations'); ?>
+            <span class="badge"><?php print count($associations_organization['#items']); ?></span>
+          </a>
         </h2>
         <div class="content" <?php
 
