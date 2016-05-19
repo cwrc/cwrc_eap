@@ -1,26 +1,29 @@
 <div class="<?php print $classes; ?>">
-  <?php if (!empty($image) || !empty($summary)) { ?>
-    <div class="row">
-      <header class="header">
-        <?php if (!empty($image)) { ?>
-          <div class="object-image">
-            <?php print render($image); ?>
-          </div>
-        <?php } ?>
-          <?php if (!empty($summary)) { ?>
-            <div class="object-summary">
-              <?php print render($summary); ?>
-            </div>
-          <?php } ?>
-      </header>
-    </div>
-  <?php } ?>
 
   <div class="row">
 
     <?php # "Information" goes on the left ?>
     <div class="left">
       <h2><?php print t('Information'); ?></h2>
+
+      <div class="information-left">
+
+
+      <?php if (!empty($image) || !empty($summary)) { ?>
+          <header class="header">
+            <?php if (!empty($image)) { ?>
+              <div class="object-image">
+                <?php print render($image); ?>
+              </div>
+            <?php } ?>
+              <?php if (!empty($summary)) { ?>
+                <div class="object-summary">
+                  <?php print render($summary); ?>
+                </div>
+              <?php } ?>
+          </header>
+      <?php } ?>
+
 
       <?php # "Record" Information ?>
       <?php if (count($info_record) > 0) { ?>
@@ -37,7 +40,9 @@
           <?php print render($info); ?>
         <?php } ?>
       <?php } ?>
+      </div>
 
+      <div class="information-right">
       <?php # "Description" Information ?>
       <?php if (count($info_description) > 0) { ?>
         <h3><?php print t('Description'); ?></h3>
@@ -45,7 +50,7 @@
           <?php print render($info); ?>
         <?php } ?>
       <?php } ?>
-    </div>
+    </div></div>
 
     <?php # "Associations" goes on the right ?>
     <div class="right">
@@ -125,13 +130,13 @@
   <?php if (count($materials) > 0) { ?>
     <div class="row">
       <div class="materials tabs">
-        <ul>
+        <ul class="material-tabs">
           <?php foreach ($materials as $material) { ?>
-            <li><a href="#material-<?php print $material['type'] ?>"><?php print $material['label'] ?></a><span class="badge"><?php print count($material['elements']['#items']); ?></span></li>
+            <li class="material-tab-row"><a href="#material-<?php print $material['type'] ?>"><?php print $material['label'] ?></a><span class="badge"><?php print count($material['elements']['#items']); ?></span></li>
           <?php } ?>
         </ul>
         <?php foreach ($materials as $material) { ?>
-          <div id="material-<?php print $material['type']; ?>">
+          <div class="material-tab-inner-row" id="material-<?php print $material['type']; ?>">
             <?php print render($material['elements']); ?>
           </div>
         <?php } ?>

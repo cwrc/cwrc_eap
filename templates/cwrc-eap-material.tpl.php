@@ -1,7 +1,9 @@
 <div class="<?php print $classes ?>">
   <?php if ($image) { ?>
     <div class="image">
-      <a href="<?php print url('islandora/object/' . $pid); ?>"><?php print $image; ?></a>
+      <div class="img-wrapper">
+        <a href="<?php print url('islandora/object/' . $pid); ?>"><?php print $image; ?></a>
+      </div>
     </div>
   <?php } else { ?>
     <div class="no-image"></div>
