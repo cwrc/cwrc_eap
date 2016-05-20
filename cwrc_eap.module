@@ -97,7 +97,7 @@ function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
 
   // Add cmodel classes.
   foreach ($object->models as $cmodel) {
-    $variables['classes_array'][] = drupal_html_class($cmodel);
+    $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($cmodel, array(':' => '-', ' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => '')));
   }
 
   // Check for TN datastream, render as image.
@@ -133,7 +133,7 @@ function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
 function cwrc_eap_preprocess_cwrc_eap(&$variables) {
   $models = array_intersect(_cwrc_eap_get_models(), $variables['object']->models);
   $model = reset($models);
-  $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($model));
+  $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($model, array(':' => '-', ' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => '')));
   $variables['theme_hook_suggestions'][] = 'cwrc_eap__' . strtolower(drupal_clean_css_identifier($model, array(':' => '_', '-' => '_', ' ' => '_', '/' => '_', '[' => '_', ']' => '')));
 }
 
