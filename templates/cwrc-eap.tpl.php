@@ -54,7 +54,9 @@
 
     <?php # "Associations" goes on the right ?>
     <div class="right">
-      <h2><?php print t('Associations'); ?></h2>
+      <?php if (!empty($associations_person) || !empty($associations_place) || !empty($associations_organization)) { ?>
+        <h2><?php print t('Associations'); ?></h2>
+      <?php } ?>
 
       <?php if (!empty($associations_person)) { ?>
       <div id="association-people" class="associations-collapsible block">
