@@ -350,6 +350,11 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
       }
     }
 
+    // Attach js for materials.
+    if (isset($build['#materials'])) {
+      drupal_add_js(drupal_get_path('module', 'cwrc_eap') . '/js/eap-tabs.js');
+    }
+
     // Route to appropriate additional handler here.
     module_load_include('inc', 'cwrc_eap', 'cwrc_eap.build');
     switch ($cmodel) {
