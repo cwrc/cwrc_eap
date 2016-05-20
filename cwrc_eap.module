@@ -393,3 +393,18 @@ function _cwrc_eap_map_material_label($key) {
 
   return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
 }
+
+/**
+ * Implements hook_preproccess_html().
+ */
+function cwrc_eap_preprocess_html(&$vars) {
+  $islandora_object = menu_get_object('islandora_object', 2);
+  if ($islandora_object != NULL) {
+    $cmodels = array_intersect(_cwrc_eap_get_models(), $islandora_object->models);
+    if (count($cmodels) > 0) {
+      $model = reset($cmodels);
+      $vars['classes_array'][] = 'cwrc-eap-body';
+      $vars['classes_array'][] = 'cwrc-eap-' . strtolower(drupal_clean_css_identifier($model)) . '-body';
+    }
+  }
+}
