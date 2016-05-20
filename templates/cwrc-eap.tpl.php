@@ -24,7 +24,7 @@
           </header>
       <?php } ?>
 
-
+      <div class="about-info">
       <?php # "Record" Information ?>
       <?php if (count($info_record) > 0) { ?>
         <h3><?php print t('About'); ?></h3>
@@ -32,6 +32,7 @@
           <?php print render($info); ?> 
         <?php } ?>
       <?php } ?>
+      </div>
 
       <?php # "Identity" Information ?>
       <?php if (count($info_identity) > 0) { ?>
