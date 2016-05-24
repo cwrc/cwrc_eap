@@ -295,6 +295,15 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
           );
           $build['#image'] = render($image);
           break;
+        } else if ($media && in_array('islandora:sp_large_image_cmodel', $media->models)) {
+          $image = array(
+            '#theme' => 'image',
+            '#path' => url('islandora/object/' . $media->id . '/datastream/JPG/view'),
+            '#alt' => t('@object thumbnail', array('@object' => $media->label)),
+            '#attributes' => array(),
+          );
+          $build['#image'] = render($image);
+          break;
         }
       }
     }
