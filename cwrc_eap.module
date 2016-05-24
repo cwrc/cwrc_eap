@@ -315,7 +315,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     }
 
     // Put together associations.
-    d($connections);
     if (count($connections['coMentionPerson']) > 0) {
       $build['#associations_person'] = array(
         '#theme' => 'item_list',
