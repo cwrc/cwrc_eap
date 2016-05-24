@@ -203,7 +203,7 @@ function cwrc_eap_libraries_info() {
  * relevant javascript and settings so that we can do our job here.
  */
 function cwrc_eap_preprocess_menu_local_task(&$variables) {
-  if ($variables['element']['#link']['path'] == 'islandora/object/%/edit-entity') {
+  if (isset($variables['element']['#link']['path']) && $variables['element']['#link']['path'] == 'islandora/object/%/edit-entity') {
     global $base_url;
 
     // Add our css and javascripts.
