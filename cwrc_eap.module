@@ -315,6 +315,7 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     }
 
     // Put together associations.
+    d($connections);
     if (count($connections['coMentionPerson']) > 0) {
       $build['#associations_person'] = array(
         '#theme' => 'item_list',
@@ -322,8 +323,8 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
         '#items' => array(),
         '#attributes' => array(),
       );
-      foreach ($connections['coMentionPerson'] as $uri) {
-        $build['#associations_person']['#items'][] = l($uri, $uri);
+      foreach ($connections['coMentionPerson'] as $mention) {
+        $build['#associations_person']['#items'][] = l($mention['fedoraLabel'], $mention['uri']);
       }
     }
     if (count($connections['coMentionPlace']) > 0) {
@@ -333,8 +334,8 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
         '#items' => array(),
         '#attributes' => array(),
       );
-      foreach ($connections['coMentionPlace'] as $uri) {
-        $build['#associations_place']['#items'][] = l($uri, $uri);
+      foreach ($connections['coMentionPlace'] as $mention) {
+        $build['#associations_place']['#items'][] = l($mention['fedoraLabel'], $mention['uri']);
       }
     }
     if (count($connections['coMentionOrganization']) > 0) {
@@ -344,8 +345,8 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
         '#items' => array(),
         '#attributes' => array(),
       );
-      foreach ($connections['coMentionOrganization'] as $uri) {
-        $build['#associations_organization']['#items'][] = l($uri, $uri);
+      foreach ($connections['coMentionOrganization'] as $mention) {
+        $build['#associations_organization']['#items'][] = l($mention['fedoraLabel'], $mention['uri']);
       }
     }
 
