@@ -279,7 +279,26 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
         '#attributes' => array(),
       );
       $build['#image'] = render($image);
+
+    // Check for image in multimedia connections if no TN datastream is present.
+    } else if (isset($materials['multimedia'])) {
+      foreach ($materials['multimedia'] as $pid) {
+
+        // Render the first basic image found.
+        $media = islandora_object_load($pid);
+        if ($media && in_array('islandora:sp_basic_image', $media->models)) {
+          $image = array(
+            '#theme' => 'image',
+            '#path' => url('islandora/object/' . $media->id . '/datastream/MEDIUM_SIZE/view'),
+            '#alt' => t('@object thumbnail', array('@object' => $media->label)),
+            '#attributes' => array(),
+          );
+          $build['#image'] = render($image);
+          break;
+        }
+      }
     }
+
 
     // Check for DC datastream, use description if found.
     if (isset($object['DC'])) {
