@@ -11,7 +11,7 @@ function _cwrc_eap_build_person(&$build) {
 
   // Get SimpleXMLElement for the "PERSON" datastream.
   try {
-    $xml = new SimpleXMLElement($object['PERSON']->content);
+    $xml = @new SimpleXMLElement($object['PERSON']->content);
   } catch (Exception $e) {
     drupal_set_message(t('Unable to parse entity datastream, XML is malformed.'), 'error');
     return;
@@ -243,7 +243,7 @@ function _cwrc_eap_build_organization(&$build) {
 
   // Get SimpleXMLElement for the "ORGANIZATION" datastream.
   try {
-    $xml = new SimpleXMLElement($object['ORGANIZATION']->content);
+    $xml = @new SimpleXMLElement($object['ORGANIZATION']->content);
   } catch (Exception $e) {
     drupal_set_message(t('Unable to parse entity datastream, XML is malformed.'), 'error');
     return;
@@ -410,7 +410,7 @@ function _cwrc_eap_build_place(&$build) {
 
   // Get SimpleXMLElement for the "PLACE" datastream.
   try {
-    $xml = new SimpleXMLElement($object['PLACE']->content);
+    $xml = @new SimpleXMLElement($object['PLACE']->content);
   } catch (Exception $e) {
     drupal_set_message(t('Unable to parse entity datastream, XML is malformed.'), 'error');
     return;
