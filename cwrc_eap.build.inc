@@ -45,25 +45,31 @@ function _cwrc_eap_build_person(&$build) {
   }
 
   // Contributing Project(s).
-  $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
-  foreach ($recordInfo->originInfo->projectId as $project) {
-    $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+  if (isset($recordInfo->originInfo)) {
+    $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
+    foreach ($recordInfo->originInfo->projectId as $project) {
+      $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+    }
   }
 
   // Person types.
-  $build['#info_record']['personTypes'] = array('#label' => t('Person Type(s)')) + $list_base;
-  foreach ($recordInfo->personTypes->personType as $personType) {
-    $build['#info_record']['personTypes']['#elements']['#items'][] = _cwrc_eap_map_person_type($personType);
+  if (isset($recordInfo->personTypes)) {
+    $build['#info_record']['personTypes'] = array('#label' => t('Person Type(s)')) + $list_base;
+    foreach ($recordInfo->personTypes->personType as $personType) {
+      $build['#info_record']['personTypes']['#elements']['#items'][] = _cwrc_eap_map_person_type($personType);
+    }
   }
 
   // Preferred names.
-  $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
-  foreach ($identity->preferredForm->namePart as $namePart) {
-    $content = (string) $namePart;
-    if (isset($namePart['partType'])) {
-      $content .= ' (<em>' . _cwrc_eap_map_name_type($namePart['partType']) . '</em>)';
+  if (isset($identity->preferredForm)) {
+    $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
+    foreach ($identity->preferredForm->namePart as $namePart) {
+      $content = (string) $namePart;
+      if (isset($namePart['partType'])) {
+        $content .= ' (<em>' . _cwrc_eap_map_name_type($namePart['partType']) . '</em>)';
+      }
+      $build['#info_identity']['preferredForm']['#elements']['#items'][] = $content;
     }
-    $build['#info_identity']['preferredForm']['#elements']['#items'][] = $content;
   }
 
   // Display label.
@@ -277,21 +283,27 @@ function _cwrc_eap_build_organization(&$build) {
   }
 
   // Contributing Project(s).
-  $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
-  foreach ($recordInfo->originInfo->projectId as $project) {
-    $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+  if (isset($recordInfo->originInfo)) {
+    $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
+    foreach ($recordInfo->originInfo->projectId as $project) {
+      $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+    }
   }
 
   // Organization types.
-  $build['#info_record']['orgTypes'] = array('#label' => t('Organization Type(s)')) + $list_base;
-  foreach ($recordInfo->orgTypes->orgType as $orgType) {
-    $build['#info_record']['orgTypes']['#elements']['#items'][] = $orgType;
+  if (isset($recordInfo->orgTypes)) {
+    $build['#info_record']['orgTypes'] = array('#label' => t('Organization Type(s)')) + $list_base;
+    foreach ($recordInfo->orgTypes->orgType as $orgType) {
+      $build['#info_record']['orgTypes']['#elements']['#items'][] = $orgType;
+    }
   }
 
   // Preferred names.
-  $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
-  foreach ($identity->preferredForm->namePart as $namePart) {
-    $build['#info_identity']['preferredForm']['#elements']['#items'][] = (string) $namePart;
+  if (isset($identity->preferredForm)) {
+    $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
+    foreach ($identity->preferredForm->namePart as $namePart) {
+      $build['#info_identity']['preferredForm']['#elements']['#items'][] = (string) $namePart;
+    }
   }
 
   // Variant names.
@@ -444,21 +456,27 @@ function _cwrc_eap_build_place(&$build) {
   }
 
   // Contributing Project(s).
-  $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
-  foreach ($recordInfo->originInfo->projectId as $project) {
-    $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+  if (isset($recordInfo->originInfo)) {
+    $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
+    foreach ($recordInfo->originInfo->projectId as $project) {
+      $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
+    }
   }
 
   // Place types.
-  $build['#info_record']['placeTypes'] = array('#label' => t('Place Type(s)')) + $list_base;
-  foreach ($recordInfo->placeTypes->placeType as $placeType) {
-    $build['#info_record']['placeTypes']['#elements']['#items'][] = _cwrc_eap_map_place_type($placeType);
+  if (isset($recordInfo->placeTypes)) {
+    $build['#info_record']['placeTypes'] = array('#label' => t('Place Type(s)')) + $list_base;
+    foreach ($recordInfo->placeTypes->placeType as $placeType) {
+      $build['#info_record']['placeTypes']['#elements']['#items'][] = _cwrc_eap_map_place_type($placeType);
+    }
   }
 
   // Preferred names.
-  $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
-  foreach ($identity->preferredForm->namePart as $namePart) {
-    $build['#info_identity']['preferredForm']['#elements']['#items'][] = (string) $namePart;
+  if (isset($identity->preferredForm)) {
+    $build['#info_identity']['preferredForm'] = array('#label' => t('Preferred Name(s)')) + $list_base;
+    foreach ($identity->preferredForm->namePart as $namePart) {
+      $build['#info_identity']['preferredForm']['#elements']['#items'][] = (string) $namePart;
+    }
   }
 
   // Variant names.
