@@ -45,7 +45,7 @@ function _cwrc_eap_build_person(&$build) {
   }
 
   // Contributing Project(s).
-  if (isset($recordInfo->originInfo)) {
+  if (isset($recordInfo->originInfo->projectId)) {
     $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
     foreach ($recordInfo->originInfo->projectId as $project) {
       $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
@@ -283,7 +283,7 @@ function _cwrc_eap_build_organization(&$build) {
   }
 
   // Contributing Project(s).
-  if (isset($recordInfo->originInfo)) {
+  if (isset($recordInfo->originInfo->projectId)) {
     $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
     foreach ($recordInfo->originInfo->projectId as $project) {
       $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
@@ -456,7 +456,7 @@ function _cwrc_eap_build_place(&$build) {
   }
 
   // Contributing Project(s).
-  if (isset($recordInfo->originInfo)) {
+  if (isset($recordInfo->originInfo->projectId)) {
     $build['#info_record']['originInfo'] = array('#label' => t('Contributing Project(s)')) + $list_base;
     foreach ($recordInfo->originInfo->projectId as $project) {
       $build['#info_record']['originInfo']['#elements']['#items'][] = (string) $project;
