@@ -83,12 +83,16 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
  * Loads object and sources appropriate data for thumbnail, label and summary.
  */
 function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
-  try {
+  // Allow PID to be passed as string or directly as object.
+  if (is_object($variables['pid'])) {
+    $object = $variables['pid'];
+    $variables['pid'] = $object->id;
+  } else {
     $object = islandora_object_load($variables['pid']);
-    if (!$object) {
-      return;
-    }
-  } catch (Exception $e) {
+  }
+
+  // No object could be loaded.
+  if (!$object) {
     return;
   }
 
@@ -372,8 +376,10 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
           ),
         );
         foreach ($material as $item) {
-          $content = array('#theme' => 'cwrc_eap_material', '#pid' => $item);
-          $build['#materials'][$type]['elements']['#items'][] = render($content);
+          if ($object = islandora_object_load($item)) {
+            $content = array('#theme' => 'cwrc_eap_material', '#pid' => $object);
+            $build['#materials'][$type]['elements']['#items'][] = render($content);
+          }
         }
       }
     }
