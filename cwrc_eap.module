@@ -365,18 +365,26 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     // Put together material.
     foreach ($materials as $type => $material) {
       if (count($material) > 0) {
-        $build['#materials'][$type] = array(
-          'label' => _cwrc_eap_map_material_label($type),
-          'type' => $type,
-          'elements' => array(
-            '#theme' => 'item_list',
-            '#type' => 'ul',
-            '#attributes' => array(),
-            '#items' => array(),
-          ),
-        );
         foreach ($material as $item) {
           if ($object = islandora_object_load($item)) {
+
+            // Since we can't be sure how many we will be able to load it is
+            // not safe to assume we can build the wrapper until an object is
+            // loaded successfully.
+            if (!isset($build['#materials'][$type])) {
+              $build['#materials'][$type] = array(
+                'label' => _cwrc_eap_map_material_label($type),
+                'type' => $type,
+                'elements' => array(
+                  '#theme' => 'item_list',
+                  '#type' => 'ul',
+                  '#attributes' => array(),
+                  '#items' => array(),
+                ),
+              );
+            }
+
+            // Add the content.
             $content = array('#theme' => 'cwrc_eap_material', '#pid' => $object);
             $build['#materials'][$type]['elements']['#items'][] = render($content);
           }
