@@ -428,9 +428,9 @@ function _cwrc_eap_get_models() {
 function _cwrc_eap_map_material_label($key) {
   static $map = array(
     'entries_about' => 'Entries About',
-    'bibliographic_about' => 'Bibliographic About',
-    'entries_mentioning' => 'Entries Mentioning',
-    'bibliographic_related' => 'Bibliographic Related',
+    'bibliographic_about' => 'Oeuvre',
+    'entries_mentioning' => 'Entries',
+    'bibliographic_related' => 'About',
     'multimedia' => 'Multimedia',
   );
 
