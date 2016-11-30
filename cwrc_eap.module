@@ -460,15 +460,20 @@ function _cwrc_eap_get_models() {
  * Helper function to get a material label given a key.
  */
 function _cwrc_eap_map_material_label($key) {
-  static $map = array(
-    'entries_about' => 'Entries About',
-    'bibliographic_about' => 'Oeuvre',
-    'entries_mentioning' => 'Entries',
-    'bibliographic_related' => 'About',
-    'multimedia' => 'Multimedia',
-  );
+  $labels = &drupal_static(__FUNCTION__);
+  if (!isset($labels)) {
+    $labels = array(
+      'entries_about' => t('Entries About'),
+      'bibliographic_about' => t('Oeuvre'),
+      'entries_mentioning' => t('Entries'),
+      'bibliographic_related' => t('About'),
+      'multimedia' => t('Multimedia'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($labels[$key]) ? $labels[$key] : $key;
 }
 
 /**

@@ -708,111 +708,146 @@ function _cwrc_eap_build_place(&$build) {
  * Helper function that statically maps keys to values for certainty selects.
  */
 function _cwrc_eap_map_certainty($key) {
-  static $map = array(
-    '1' => 'Speculative',
-    '2' => 'Probable',
-    '3' => 'Reasonably Certain',
-    '4' => 'Definite',
-  );
+  $certainties = &drupal_static(__FUNCTION__);
+  if (!isset($certainties)) {
+    $certainties = array(
+      '1' => t('Speculative'),
+      '2' => t('Probable'),
+      '3' => t('Reasonably Certain'),
+      '4' => t('Definite'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($certainties[$key]) ? $certainties[$key] : $key;
 }
 
 /**
  * Helper function that statically maps keys to values for person type selects.
  */
 function _cwrc_eap_map_person_type($key) {
-  static $map = array(
-    'creator' => 'Creator',
-    'writer' => 'Writer',
-    'critic' => 'Critic',
-    'canwwr:creator' => 'Creator (CanWWr)',
-    'canwwr:critic' => 'Critic (CanWWr)',
-    'orl:BWW' => 'British Woman Writer (Orlando)',
-    'orl:IBW' => 'International-British Women Writer (Orlando)',
-    'orl:IWW' => 'International Women Writer (Orlando)',
-    'orl:MW' => 'Male Writer (Orlando)',
-  );
+  $type = &drupal_static(__FUNCTION__);
+  if (!isset($type)) {
+    $type = array(
+      'creator' => t('Creator'),
+      'writer' => t('Writer'),
+      'critic' => t('Critic'),
+      'canwwr:creator' => t('Creator (CanWWr)'),
+      'canwwr:critic' => t('Critic (CanWWr)'),
+      'orl:BWW' => t('British Woman Writer (Orlando)'),
+      'orl:IBW' => t('International-British Women Writer (Orlando)'),
+      'orl:IWW' => t('International Women Writer (Orlando)'),
+      'orl:MW' => t('Male Writer (Orlando)'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($type[$key]) ? $type[$key] : $key;
 }
 
 /**
  * Helper function that statically maps keys to values for name type selects.
  */
 function _cwrc_eap_map_name_type($key) {
-  static $map = array(
-    'family' => 'Family Name',
-    'fullName' => 'Full Name (inverse order)',
-    'fullNameInverted' => 'Full Name (inverse order)',
-    'fullNameDirect' => 'Full Name (direct order)',
-    'given' => 'Given Names',
-    'termsOfAddress' => 'Terms of Address',
-  );
+  $type = &drupal_static(__FUNCTION__);
+  if (!isset($type)) {
+    $type = array(
+      'family' => t('Family Name'),
+      'fullName' => t('Full Name (inverse order)'),
+      'fullNameInverted' => t('Full Name (inverse order)'),
+      'fullNameDirect' => t('Full Name (direct order)'),
+      'given' => t('Given Names'),
+      'termsOfAddress' => t('Terms of Address'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($type[$key]) ? $type[$key] : $key;
 }
 
 /**
  * Helper function that statically maps keys to values for date type selects.
  */
 function _cwrc_eap_map_date_type($key) {
-  static $map = array(
-    'birth' => 'Birth',
-    'death' => 'Death',
-    'flourish' => 'Flourish',
-    'establishment' => 'Establishment',
-    'dissolution' => 'Dissolution',
-  );
+  $type = &drupal_static(__FUNCTION__);
+  if (!isset($type)) {
+    $type = array(
+      'birth' => t('Birth'),
+      'death' => t('Death'),
+      'flourish' => t('Flourish'),
+      'establishment' => t('Establishment'),
+      'dissolution' => t('Dissolution'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($type[$key]) ? $type[$key] : $key;
 }
 
 /**
  * Helper function that statically maps keys to values for factuality selects.
  */
 function _cwrc_eap_map_factuality($key) {
-  static $map = array(
-    'real' => 'Real',
-    'fictional' => 'Fictional',
-    'both' => 'Both',
-  );
+  $factualities = &drupal_static(__FUNCTION__);
+  if (!isset($factualities)) {
+    $factualities = array(
+      'real' => t('Real'),
+      'fictional' => t('Fictional'),
+      'both' => t('Both'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($factualities[$key]) ? $factualities[$key] : $key;
 }
 
 /**
  * Helper function that statically maps keys to values for variant type selects.
  */
 function _cwrc_eap_map_variant_type($key) {
-  static $map = array(
-    'birthName' => 'Birth Name',
-    'marriedName' => 'Married Name',
-    'indexedName' => 'Indexed Name',
-    'pseudonym' => 'Pseudonym',
-    'usedForm' => 'Used Form',
-    'nickname' => 'Nickname',
-    'religiousName' => 'Religious',
-    'royalName' => 'Royal',
-    'selfConstructedName' => 'Self Constructed',
-    'styledName' => 'Styled',
-    'titledName' => 'Titled',
-    'orlandoStandardName' => 'Orlando Standard Name',
-  );
+  $type = &drupal_static(__FUNCTION__);
+  if (!isset($type)) {
+    $type = array(
+      'birthName' => t('Birth Name'),
+      'marriedName' => t('Married Name'),
+      'indexedName' => t('Indexed Name'),
+      'pseudonym' => t('Pseudonym'),
+      'usedForm' => t('Used Form'),
+      'nickname' => t('Nickname'),
+      'religiousName' => t('Religious'),
+      'royalName' => t('Royal'),
+      'selfConstructedName' => t('Self Constructed'),
+      'styledName' => t('Styled'),
+      'titledName' => t('Titled'),
+      'orlandoStandardName' => t('Orlando Standard Name'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($type[$key]) ? $type[$key] : $key;
 }
 
 /**
  * Helper function that statically maps keys to values for place type selects.
  */
 function _cwrc_eap_map_place_type($key) {
-  static $map = array(
-    'currentHumanPlace' => 'current populated place or administrative boundary place name',
-    'historicalHumanPlace' => 'historical populated place or administrative boundary place name',
-    'currentNaturalPlace' => 'current natural geographic feature place name',
-    'historicalNaturalPlace' => 'historical natural geographic feature place name',
-  );
+  $type = &drupal_static(__FUNCTION__);
+  if (!isset($type)) {
+    $type = array(
+      'currentHumanPlace' => t('current populated place or administrative boundary place name'),
+      'historicalHumanPlace' => t('historical populated place or administrative boundary place name'),
+      'currentNaturalPlace' => t('current natural geographic feature place name'),
+      'historicalNaturalPlace' => t('historical natural geographic feature place name'),
+    );
+  }
 
-  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
+  $key = (string) $key;
+
+  return isset($type[$key]) ? $type[$key] : $key;
 }
