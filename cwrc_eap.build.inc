@@ -1,10 +1,15 @@
 <?php
 
 /**
+ * @file
+ * Helper functions to build and map different EAP entities.
+ */
+
+/**
  * Helper function to perform additional preprocessing for person entities.
  *
- * @param  array &$build      The finished build array, should be modified
- *                             directly by this function.
+ * @param array &$build
+ *   The finished build array, should be modified directly by this function.
  */
 function _cwrc_eap_build_person(&$build) {
   $object = $build['#object'];
@@ -12,7 +17,8 @@ function _cwrc_eap_build_person(&$build) {
   // Get SimpleXMLElement for the "PERSON" datastream.
   try {
     $xml = @new SimpleXMLElement($object['PERSON']->content);
-  } catch (Exception $e) {
+  }
+  catch (Exception $e) {
     drupal_set_message(t('Unable to parse entity datastream, XML is malformed.'), 'error');
     return;
   }
@@ -29,7 +35,7 @@ function _cwrc_eap_build_person(&$build) {
       '#theme' => 'item_list',
       '#type' => 'ul',
       '#items' => array(),
-      '#title' => null,
+      '#title' => NULL,
       '#attributes' => array(),
     ),
   );
@@ -128,9 +134,10 @@ function _cwrc_eap_build_person(&$build) {
   if (isset($identity->sameAs)) {
     $build['#info_identity']['sameAs'] = array('#label' => t('Same As')) + $list_base;
     foreach ($identity->sameAs as $sameAs) {
-      if (valid_url($sameAs, true)) {
+      if (valid_url($sameAs, TRUE)) {
         $content = l($sameAs, $sameAs);
-      } else {
+      }
+      else {
         $content = (string) $sameAs;
       }
 
@@ -238,11 +245,10 @@ function _cwrc_eap_build_person(&$build) {
 }
 
 /**
- * Helper function to perform additional preprocessing for organization
- * entities.
+ * Helper to perform additional preprocessing for organization entities.
  *
- * @param  array &$build      The finished build array, should be modified
- *                            directly by this function.
+ * @param array &$build
+ *   The finished build array, should be modified directly by this function.
  */
 function _cwrc_eap_build_organization(&$build) {
   $object = $build['#object'];
@@ -250,7 +256,8 @@ function _cwrc_eap_build_organization(&$build) {
   // Get SimpleXMLElement for the "ORGANIZATION" datastream.
   try {
     $xml = @new SimpleXMLElement($object['ORGANIZATION']->content);
-  } catch (Exception $e) {
+  }
+  catch (Exception $e) {
     drupal_set_message(t('Unable to parse entity datastream, XML is malformed.'), 'error');
     return;
   }
@@ -267,7 +274,7 @@ function _cwrc_eap_build_organization(&$build) {
       '#theme' => 'item_list',
       '#type' => 'ul',
       '#items' => array(),
-      '#title' => null,
+      '#title' => NULL,
       '#attributes' => array(),
     ),
   );
@@ -353,9 +360,10 @@ function _cwrc_eap_build_organization(&$build) {
   if (isset($identity->sameAs)) {
     $build['#info_identity']['sameAs'] = array('#label' => t('Same As')) + $list_base;
     foreach ($identity->sameAs as $sameAs) {
-      if (valid_url($sameAs, true)) {
+      if (valid_url($sameAs, TRUE)) {
         $content = l($sameAs, $sameAs);
-      } else {
+      }
+      else {
         $content = (string) $sameAs;
       }
 
@@ -414,8 +422,8 @@ function _cwrc_eap_build_organization(&$build) {
 /**
  * Helper function to perform additional preprocessing for place entities.
  *
- * @param  array &$build      The finished build array, should be modified
- *                            directly by this function.
+ * @param array &$build
+ *   The finished build array, should be modified directly by this function.
  */
 function _cwrc_eap_build_place(&$build) {
   $object = $build['#object'];
@@ -423,7 +431,8 @@ function _cwrc_eap_build_place(&$build) {
   // Get SimpleXMLElement for the "PLACE" datastream.
   try {
     $xml = @new SimpleXMLElement($object['PLACE']->content);
-  } catch (Exception $e) {
+  }
+  catch (Exception $e) {
     drupal_set_message(t('Unable to parse entity datastream, XML is malformed.'), 'error');
     return;
   }
@@ -440,7 +449,7 @@ function _cwrc_eap_build_place(&$build) {
       '#theme' => 'item_list',
       '#type' => 'ul',
       '#items' => array(),
-      '#title' => null,
+      '#title' => NULL,
       '#attributes' => array(),
     ),
   );
@@ -526,9 +535,10 @@ function _cwrc_eap_build_place(&$build) {
   if (isset($identity->sameAs)) {
     $build['#info_identity']['sameAs'] = array('#label' => t('Same As')) + $list_base;
     foreach ($identity->sameAs as $sameAs) {
-      if (valid_url($sameAs, true)) {
+      if (valid_url($sameAs, TRUE)) {
         $content = l($sameAs, $sameAs);
-      } else {
+      }
+      else {
         $content = (string) $sameAs;
       }
 
@@ -705,7 +715,7 @@ function _cwrc_eap_map_certainty($key) {
     '4' => 'Definite',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
@@ -724,7 +734,7 @@ function _cwrc_eap_map_person_type($key) {
     'orl:MW' => 'Male Writer (Orlando)',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
@@ -740,7 +750,7 @@ function _cwrc_eap_map_name_type($key) {
     'termsOfAddress' => 'Terms of Address',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
@@ -755,7 +765,7 @@ function _cwrc_eap_map_date_type($key) {
     'dissolution' => 'Dissolution',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
@@ -768,7 +778,7 @@ function _cwrc_eap_map_factuality($key) {
     'both' => 'Both',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
@@ -790,7 +800,7 @@ function _cwrc_eap_map_variant_type($key) {
     'orlandoStandardName' => 'Orlando Standard Name',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
@@ -804,5 +814,5 @@ function _cwrc_eap_map_place_type($key) {
     'historicalNaturalPlace' => 'historical natural geographic feature place name',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }

@@ -1,8 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Displays an EAP.
+ */
+?>
 <div class="<?php print $classes; ?>">
 
   <div class="row">
 
-    <?php # "Information" goes on the left ?>
+    <?php
+// "Information" goes on the left. ?>
     <div class="left">
       <h2><?php print t('Information'); ?></h2>
 
@@ -25,7 +33,8 @@
       <?php } ?>
 
       <div class="about-info">
-      <?php # "Record" Information ?>
+      <?php
+// "Record" Information. ?>
       <?php if (count($info_record) > 0) { ?>
         <h3><?php print t('About'); ?></h3>
         <?php foreach ($info_record as $info) { ?>
@@ -34,7 +43,8 @@
       <?php } ?>
       </div>
 
-      <?php # "Identity" Information ?>
+      <?php
+// "Identity" Information. ?>
       <?php if (count($info_identity) > 0) { ?>
         <h3><?php print t('Identity'); ?></h3>
         <?php foreach ($info_identity as $info) { ?>
@@ -44,7 +54,8 @@
       </div>
 
       <div class="information-right">
-      <?php # "Description" Information ?>
+      <?php
+// "Description" Information. ?>
       <?php if (count($info_description) > 0) { ?>
         <h3><?php print t('Description'); ?></h3>
         <?php foreach ($info_description as $info) { ?>
@@ -53,7 +64,8 @@
       <?php } ?>
     </div></div>
 
-    <?php # "Associations" goes on the right ?>
+    <?php
+// "Associations" goes on the right. ?>
     <div class="right">
       <?php if (!empty($associations_person) || !empty($associations_place) || !empty($associations_organization)) { ?>
         <h2><?php print t('Associations'); ?></h2>
@@ -63,7 +75,7 @@
       <div id="association-people" class="associations-collapsible block">
         <h2 class="collapsiblock <?php if(count($associations_person['#items']) > 5) {
           print " collapsiblockCollapsed";
-        }
+       }
         ?>">
           <a href="#association-people" role="link">
             <?php print t('People'); ?>
@@ -86,7 +98,7 @@
       <div id="association-places" class="associations-collapsible block">
         <h2 class="collapsiblock <?php if(count($associations_place['#items']) > 5) {
           print " collapsiblockCollapsed";
-        }
+       }
         ?>">
           <a href="#association-places" role="link">
             <?php print t('Places'); ?>
@@ -109,7 +121,7 @@
       <div id="association-orgs" class="associations-collapsible block">
         <h2 class="collapsiblock <?php if(count($associations_organization['#items']) > 5) {
           print " collapsiblockCollapsed";
-        }
+       }
         ?>">
           <a href="#association-orgs" role="link">
             <?php print t('Organizations'); ?>

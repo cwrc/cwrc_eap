@@ -1,3 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Displays an EAP material.
+ *
+ * Available variables:
+ * - $classes: A string of classes to apply to the material.
+ * - $image: An image representing the material.
+ * - $pid: The Fedora object ID of the material.
+ * - $label: A label representing the material.
+ * - $summary: A summary of the material.
+ */
+?>
 <div class="<?php print $classes ?>">
   <?php if ($image) { ?>
     <div class="image">
@@ -14,7 +28,7 @@
     </div>
     <?php if ($summary) { ?>
       <div class="summary">
-        <?php print truncate_utf8($summary, 200, true, true); ?>
+        <?php print truncate_utf8($summary, 200, TRUE, TRUE); ?>
       </div>
     <?php } ?>
   </div>

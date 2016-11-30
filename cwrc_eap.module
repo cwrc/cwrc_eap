@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Hooks and helper functions for the cwrc_eap module.
+ */
+
 module_load_include('inc', 'cwrc_eap', 'cwrc_eap.api');
 
 /**
@@ -36,10 +41,10 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
       'variables' => array(
 
         // Generic information elements.
-        'object' => null,
-        'project' => null,
-        'image' => null,
-        'summary' => null,
+        'object' => NULL,
+        'project' => NULL,
+        'image' => NULL,
+        'summary' => NULL,
 
         // Info is a renderable array of one or more "cwrc_eap_info" elements.
         'info_record' => array(),
@@ -47,9 +52,9 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
         'info_description' => array(),
 
         // Associations is a list of links to associated entities.
-        'associations_person' => null,
-        'associations_place' => null,
-        'associations_organization' => null,
+        'associations_person' => NULL,
+        'associations_place' => NULL,
+        'associations_organization' => NULL,
 
         // Materials is a renderable array of one or more "cwrc_eap_material"
         // elements.
@@ -61,7 +66,7 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
     'cwrc_eap_info' => array(
       'template' => 'templates/cwrc-eap-info',
       'variables' => array(
-        'label' => null,
+        'label' => NULL,
         'elements' => array(),
       ),
     ),
@@ -70,10 +75,10 @@ function cwrc_eap_theme($existing, $type, $theme, $path) {
     'cwrc_eap_material' => array(
       'template' => 'templates/cwrc-eap-material',
       'variables' => array(
-        'pid' => null,
-        'image' => null,
-        'label' => null,
-        'summary' => null,
+        'pid' => NULL,
+        'image' => NULL,
+        'label' => NULL,
+        'summary' => NULL,
       ),
     ),
   );
@@ -87,7 +92,8 @@ function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
   if (is_object($variables['pid'])) {
     $object = $variables['pid'];
     $variables['pid'] = $object->id;
-  } else {
+  }
+  else {
     $object = islandora_object_load($variables['pid']);
   }
 
@@ -101,7 +107,14 @@ function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
 
   // Add cmodel classes.
   foreach ($object->models as $cmodel) {
-    $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($cmodel, array(':' => '-', ' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => '')));
+    $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($cmodel, array(
+      ':' => '-',
+      ' ' => '-',
+      '_' => '-',
+      '/' => '-',
+      '[' => '-',
+      ']' => '',
+    )));
   }
 
   // Check for TN datastream, render as image.
@@ -131,19 +144,31 @@ function cwrc_eap_preprocess_cwrc_eap_material(&$variables) {
 }
 
 /**
- * Adds a theme hook suggestion for allowing custom templates for different
- * EAPs.
+ * Add a theme hook suggestion to allow custom templates for different EAPs.
  */
 function cwrc_eap_preprocess_cwrc_eap(&$variables) {
   $models = array_intersect(_cwrc_eap_get_models(), $variables['object']->models);
   $model = reset($models);
-  $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($model, array(':' => '-', ' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => '')));
-  $variables['theme_hook_suggestions'][] = 'cwrc_eap__' . strtolower(drupal_clean_css_identifier($model, array(':' => '_', '-' => '_', ' ' => '_', '/' => '_', '[' => '_', ']' => '')));
+  $variables['classes_array'][] = strtolower(drupal_clean_css_identifier($model, array(
+    ':' => '-',
+    ' ' => '-',
+    '_' => '-',
+    '/' => '-',
+    '[' => '-',
+    ']' => '',
+  )));
+  $variables['theme_hook_suggestions'][] = 'cwrc_eap__' . strtolower(drupal_clean_css_identifier($model, array(
+    ':' => '_',
+    '-' => '_',
+    ' ' => '_',
+    '/' => '_',
+    '[' => '_',
+    ']' => '',
+  )));
 }
 
 /**
- * Page callback, just dumps an error message, as editing is all javascript
- * based for this.
+ * Page callback to dump an error message saying JS must be enabled.
  */
 function cwrc_eap_edit_entity() {
   return t('You must have javascript enabled to edit CWRC entities.');
@@ -155,8 +180,9 @@ function cwrc_eap_edit_entity() {
 function cwrc_eap_edit_entity_access($object) {
   module_load_include('inc', 'islandora_cwrc_writer', 'includes/utilities');
   if (!islandora_cwrc_writer_valid_entity_type(islandora_cwrc_writer_get_entity_type($object))) {
-    return false;
-  } else {
+    return FALSE;
+  }
+  else {
     return islandora_object_manage_access_callback(
       array(
         ISLANDORA_MANAGE_PROPERTIES,
@@ -169,12 +195,11 @@ function cwrc_eap_edit_entity_access($object) {
 }
 
 /**
- * Implementation of hook_libraries_info().
- *
- * Defines the CWRC Dialogs library.
+ * Implements hook_libraries_info().
  */
 function cwrc_eap_libraries_info() {
   return array(
+    // Defines the CWRC Dialogs library.
     'CWRC-Dialogs' => array(
       'name' => 'CWRC Dialogs',
       'version' => 'dev-master',
@@ -201,12 +226,11 @@ function cwrc_eap_libraries_info() {
 }
 
 /**
- * Implementation of hook_preprocess_menu_local_task().
- *
- * When our link is rendered as a local task we load the library and attach
- * relevant javascript and settings so that we can do our job here.
+ * Implements hook_preprocess_menu_local_task().
  */
 function cwrc_eap_preprocess_menu_local_task(&$variables) {
+  // When our link is rendered as a local task we load the library and attach
+  // relevant javascript and settings so that we can do our job here.
   if (isset($variables['element']['#link']['path']) && $variables['element']['#link']['path'] == 'islandora/object/%/edit-entity') {
     global $base_url;
 
@@ -237,12 +261,12 @@ function cwrc_eap_preprocess_menu_local_task(&$variables) {
 /**
  * Implements hook_islandora_view_object().
  */
-function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $page_size = null) {
+function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $page_size = NULL) {
   drupal_add_js('var $ = jQuery;', array(
     'type' => 'inline',
     'scope' => 'header',
     'every_page' => TRUE,
-    'requires_jquery' => TRUE
+    'requires_jquery' => TRUE,
   ));
 
   $build = array();
@@ -254,7 +278,7 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     $cmodel = reset($cmodels);
 
     // Get material and connections from XML database.
-    $response = cwrc_eap_xmldb_json(url('http://commons.cwrc.ca/' . $object->id), true);
+    $response = cwrc_eap_xmldb_json(url('http://commons.cwrc.ca/' . $object->id), TRUE);
     $connections = $response['connections'];
     $materials = $response['material'];
 
@@ -267,7 +291,7 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
     // Get the parent project (default to cwrc commons if none is found).
     $project = _cwrc_projects_get_project($object->id);
     if (!$project) {
-      $nid = variable_get('cwrc_eap_default_project', false);
+      $nid = variable_get('cwrc_eap_default_project', FALSE);
       if ($nid) {
         $project = node_load($nid);
       }
@@ -284,8 +308,10 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
       );
       $build['#image'] = render($image);
 
-    // Check for image in multimedia connections if no TN datastream is present.
-    } else if (isset($materials['multimedia'])) {
+      // Check for image in multimedia connections if no TN datastream is
+      // present.
+    }
+    elseif (isset($materials['multimedia'])) {
       foreach ($materials['multimedia'] as $pid) {
 
         // Render the first basic image found.
@@ -299,7 +325,8 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
           );
           $build['#image'] = render($image);
           break;
-        } else if ($media && in_array('islandora:sp_large_image_cmodel', $media->models)) {
+        }
+        elseif ($media && in_array('islandora:sp_large_image_cmodel', $media->models)) {
           $image = array(
             '#theme' => 'image',
             '#path' => url('islandora/object/' . $media->id . '/datastream/JPG/view'),
@@ -311,7 +338,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
         }
       }
     }
-
 
     // Check for DC datastream, use description if found.
     if (isset($object['DC'])) {
@@ -404,9 +430,11 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
       case 'cwrc:person-entityCModel':
         _cwrc_eap_build_person($build);
         break;
+
       case 'cwrc:organization-entityCModel':
         _cwrc_eap_build_organization($build);
         break;
+
       case 'cwrc:place-entityCModel':
         _cwrc_eap_build_place($build);
         break;
@@ -416,6 +444,9 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = null, $pa
   return render($build);
 }
 
+/**
+ * Helper function to get a list of models.
+ */
 function _cwrc_eap_get_models() {
   static $models = array(
     'cwrc:person-entityCModel',
@@ -425,6 +456,9 @@ function _cwrc_eap_get_models() {
   return $models;
 }
 
+/**
+ * Helper function to get a material label given a key.
+ */
 function _cwrc_eap_map_material_label($key) {
   static $map = array(
     'entries_about' => 'Entries About',
@@ -434,7 +468,7 @@ function _cwrc_eap_map_material_label($key) {
     'multimedia' => 'Multimedia',
   );
 
-  return isset($map[(string)$key]) ? t($map[(string)$key]) : $key;
+  return isset($map[(string) $key]) ? t($map[(string) $key]) : $key;
 }
 
 /**
