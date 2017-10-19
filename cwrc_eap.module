@@ -277,11 +277,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
     // rendering the object, may need to revisit though.
     $cmodel = reset($cmodels);
 
-    // Get material and connections from XML database.
-    $response = cwrc_eap_xmldb_json(url('http://commons.cwrc.ca/' . $object->id), TRUE);
-    $connections = $response['connections'];
-    $materials = $response['material'];
-
     // Begin build array.
     $build = array(
       '#theme' => 'cwrc_eap',
@@ -307,14 +302,12 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
         '#attributes' => array(),
       );
       $build['#image'] = render($image);
-
-      // Check for image in multimedia connections if no TN datastream is
-      // present.
     }
-    elseif (isset($materials['multimedia'])) {
-      foreach ($materials['multimedia'] as $pid) {
-
-        // Render the first basic image found.
+    else {
+      // Lookup multimedia from XML db.
+      $response = cwrc_eap_xmldb_json($object->id, array('multimedia'), TRUE);
+      foreach ($response['multimedia'] as $pid) {
+        // Render the first image found.
         $media = islandora_object_load($pid);
         if ($media && in_array('islandora:sp_basic_image', $media->models)) {
           $image = array(
@@ -353,69 +346,45 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
       }
     }
 
-    // Put together associations.
-    if (count($connections['coMentionPerson']) > 0) {
-      $build['#associations_person'] = array(
-        '#theme' => 'item_list',
-        '#type' => 'ul',
-        '#items' => array(),
-        '#attributes' => array(),
-      );
-      foreach ($connections['coMentionPerson'] as $mention) {
-        $build['#associations_person']['#items'][] = l($mention['fedoraLabel'], $mention['uri']);
-      }
-    }
-    if (count($connections['coMentionPlace']) > 0) {
-      $build['#associations_place'] = array(
-        '#theme' => 'item_list',
-        '#type' => 'ul',
-        '#items' => array(),
-        '#attributes' => array(),
-      );
-      foreach ($connections['coMentionPlace'] as $mention) {
-        $build['#associations_place']['#items'][] = l($mention['fedoraLabel'], $mention['uri']);
-      }
-    }
-    if (count($connections['coMentionOrganization']) > 0) {
-      $build['#associations_organization'] = array(
-        '#theme' => 'item_list',
-        '#type' => 'ul',
-        '#items' => array(),
-        '#attributes' => array(),
-      );
-      foreach ($connections['coMentionOrganization'] as $mention) {
-        $build['#associations_organization']['#items'][] = l($mention['fedoraLabel'], $mention['uri']);
-      }
-    }
+    // Put together association lists (to be populated using ajax).
+    $build['#associations_person'] = array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#attributes' => array(),
+    );
+    $build['#associations_place'] = array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#attributes' => array(),
+    );
+    $build['#associations_organization'] = array(
+      '#theme' => 'item_list',
+      '#type' => 'ul',
+      '#items' => array(),
+      '#attributes' => array(),
+    );
 
     // Put together material.
-    foreach ($materials as $type => $material) {
-      if (count($material) > 0) {
-        foreach ($material as $item) {
-          if ($object = islandora_object_load($item)) {
-
-            // Since we can't be sure how many we will be able to load it is
-            // not safe to assume we can build the wrapper until an object is
-            // loaded successfully.
-            if (!isset($build['#materials'][$type])) {
-              $build['#materials'][$type] = array(
-                'label' => _cwrc_eap_map_material_label($type),
-                'type' => $type,
-                'elements' => array(
-                  '#theme' => 'item_list',
-                  '#type' => 'ul',
-                  '#attributes' => array(),
-                  '#items' => array(),
-                ),
-              );
-            }
-
-            // Add the content.
-            $content = array('#theme' => 'cwrc_eap_material', '#pid' => $object);
-            $build['#materials'][$type]['elements']['#items'][] = render($content);
-          }
-        }
-      }
+    $materials = array('entries_about',
+      'entries_other',
+      'entries_mentioning',
+      'bibliographic_about',
+      'bibliographic_related',
+      'multimedia',
+    );
+    foreach ($materials as $type) {
+      $build['#materials'][$type] = array(
+        'label' => _cwrc_eap_map_material_label($type),
+        'type' => $type,
+        'elements' => array(
+          '#theme' => 'item_list',
+          '#type' => 'ul',
+          '#attributes' => array(),
+          '#items' => array(),
+        ),
+      );
     }
 
     // Attach js for materials.
