@@ -31,6 +31,10 @@ function cwrc_eap_xmldb_json($pid, $components = array(), $return = FALSE) {
       'coMentionPlace',
     );
   }
+  elseif (is_string($components)) {
+    // Allows components to be passed as a comma-separated string.
+    $components = explode(',', $components);
+  }
 
   // This line is for local debugging of the EAPs, will use the test data from
   // the data folder.

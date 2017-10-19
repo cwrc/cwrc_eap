@@ -18,10 +18,10 @@ function cwrc_eap_menu() {
     'access arguments' => array(2),
     'type' => MENU_LOCAL_TASK,
   );
-  $items['islandora/cwrc-eap/%'] = array(
+  $items['islandora/cwrc-eap/%/%'] = array(
     'title' => 'View',
     'page callback' => 'cwrc_eap_xmldb_json',
-    'page arguments' => array(2),
+    'page arguments' => array(2, 3),
     'access arguments' => array(ISLANDORA_CWRC_BASEXDB_AC_QUERY),
     'file' => 'cwrc_eap.api.inc',
     'type' => MENU_CALLBACK,
