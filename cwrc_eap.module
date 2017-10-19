@@ -26,6 +26,14 @@ function cwrc_eap_menu() {
     'file' => 'cwrc_eap.api.inc',
     'type' => MENU_CALLBACK,
   );
+  $items['islandora/cwrc-eap/material/%/%'] = array(
+    'title' => 'View',
+    'page callback' => 'cwrc_eap_xmldb_json_material',
+    'page arguments' => array(3, 4),
+    'access arguments' => array(ISLANDORA_CWRC_BASEXDB_AC_QUERY),
+    'file' => 'cwrc_eap.api.inc',
+    'type' => MENU_CALLBACK,
+  );
 
   return $items;
 }

@@ -10,6 +10,8 @@
  *
  * @param string $pid
  *    Fedora PID to base EAP upon.
+ * @param array $components
+ *    The components to return.
  * @param bool $return
  *    If set to TRUE will return the results, rather than rendering them.
  *
@@ -64,4 +66,30 @@ function cwrc_eap_xmldb_json($pid, $components = array(), $return = FALSE) {
   // Render the results for api usage.
   drupal_add_http_header('Content-Type', 'application/json; charset=utf-8');
   echo $json_results;
+}
+
+/**
+ * JSON callback for rendered content of materials.
+ *
+ * @param string $pid
+ *    Fedora PID to base EAP upon.
+ * @param array $components
+ *    The components to return.
+ *
+ * @return string
+ *   The JSON to build an EAP page.
+ */
+function cwrc_eap_xmldb_json_material($pid, $components = array()) {
+  $results = cwrc_eap_xmldb_json($pid, $components, TRUE);
+  foreach ($results as $component => $materials) {
+    foreach ($materials as $key => $result) {
+      if (is_scalar($result)) {
+        $build = array('#theme' => 'cwrc_eap_material', '#pid' => $result);
+        $results[$component][$key] = render($build);
+      }
+    }
+  }
+
+  // Render the results for api usage.
+  return drupal_json_output($results);
 }
