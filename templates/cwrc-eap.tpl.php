@@ -69,7 +69,7 @@
     <div class="right">
       <h2><?php print t('Associations'); ?></h2>
 
-      <div id="association-people" class="associations-collapsible block" data-component="<?php print $associations_person['component']; ?>">
+      <div id="association-people" class="associations associations-collapsible block" data-component="<?php print $associations_person['component']; ?>">
         <h2 class="collapsiblock collapsiblockCollapsed">
           <a href="#association-people" role="link">
             <?php print t('People'); ?>
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div id="association-places" class="associations-collapsible block" data-component="<?php print $associations_place['component']; ?>">
+      <div id="association-places" class="associations associations-collapsible block" data-component="<?php print $associations_place['component']; ?>">
         <h2 class="collapsiblock collapsiblockCollapsed">
           <a href="#association-places" role="link">
             <?php print t('Places'); ?>
@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <div id="association-orgs" class="associations-collapsible block" data-component="<?php print $associations_organization['component']; ?>">
+      <div id="association-orgs" class="associations associations-collapsible block" data-component="<?php print $associations_organization['component']; ?>">
         <h2 class="collapsiblock collapsiblockCollapsed">
           <a href="#association-orgs" role="link">
             <?php print t('Organizations'); ?>
@@ -117,7 +117,7 @@
         <?php } ?>
       </ul>
       <?php foreach ($materials as $material) { ?>
-        <div class="material-tab-inner-row" id="material-<?php print $material['type']; ?>" data-component="<?php print $material['type']; ?>">
+        <div class="materials material-tab-inner-row" id="material-<?php print $material['type']; ?>" data-component="<?php print $material['type']; ?>">
           <ul></ul>
         </div>
       <?php } ?>

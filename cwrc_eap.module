@@ -395,6 +395,9 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
     }
   }
 
+  // Javascript required for AJAX.
+  $build['#attached']['js'][] = array('type' => 'setting', 'data' => array('cwrc_eap_ajax_pid' => $object->id));
+  $build['#attached']['js'][] = drupal_get_path('module', 'cwrc_eap') . '/js/eap-ajax.js';
   return render($build);
 }
 
