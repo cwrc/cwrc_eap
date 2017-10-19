@@ -67,95 +67,60 @@
     <?php
 // "Associations" goes on the right. ?>
     <div class="right">
-      <?php if (!empty($associations_person) || !empty($associations_place) || !empty($associations_organization)) { ?>
-        <h2><?php print t('Associations'); ?></h2>
-      <?php } ?>
+      <h2><?php print t('Associations'); ?></h2>
 
-      <?php if (!empty($associations_person)) { ?>
-      <div id="association-people" class="associations-collapsible block">
-        <h2 class="collapsiblock <?php if(count($associations_person['#items']) > 5) {
-          print " collapsiblockCollapsed";
-       }
-        ?>">
+      <div id="association-people" class="associations-collapsible block" data-component="<?php print $associations_person['component']; ?>">
+        <h2 class="collapsiblock collapsiblockCollapsed">
           <a href="#association-people" role="link">
             <?php print t('People'); ?>
-            <span class="badge"><?php print count($associations_person['#items']); ?></span>
+            <span class="badge"><?php print t('Loading...'); ?></span>
           </a>
         </h2>
-        <div class="content" <?php
-
-        if (count($associations_person['#items']) > 5) {
-          print "style=\"display:none;\"";
-        }
-
-        ?>>
-          <?php print render($associations_person); ?>
+        <div class="content" style="display:none;">
+          <ul></ul>
         </div>
       </div>
-      <?php } ?>
 
-      <?php if (!empty($associations_place)) { ?>
-      <div id="association-places" class="associations-collapsible block">
-        <h2 class="collapsiblock <?php if(count($associations_place['#items']) > 5) {
-          print " collapsiblockCollapsed";
-       }
-        ?>">
+      <div id="association-places" class="associations-collapsible block" data-component="<?php print $associations_place['component']; ?>">
+        <h2 class="collapsiblock collapsiblockCollapsed">
           <a href="#association-places" role="link">
             <?php print t('Places'); ?>
-            <span class="badge"><?php print count($associations_place['#items']); ?></span>
+            <span class="badge"><?php print t('Loading...'); ?></span>
           </a>
         </h2>
-        <div class="content" <?php
-
-        if (count($associations_place['#items']) > 5) {
-          print "style=\"display:none;\"";
-        }
-
-        ?>>
-          <?php print render($associations_place); ?>
+        <div class="content" style="display:none;">
+          <ul></ul>
         </div>
       </div>
-      <?php } ?>
 
-      <?php if (!empty($associations_organization)) { ?>
-      <div id="association-orgs" class="associations-collapsible block">
-        <h2 class="collapsiblock <?php if(count($associations_organization['#items']) > 5) {
-          print " collapsiblockCollapsed";
-       }
-        ?>">
+      <div id="association-orgs" class="associations-collapsible block" data-component="<?php print $associations_organization['component']; ?>">
+        <h2 class="collapsiblock collapsiblockCollapsed">
           <a href="#association-orgs" role="link">
             <?php print t('Organizations'); ?>
-            <span class="badge"><?php print count($associations_organization['#items']); ?></span>
+            <span class="badge"><?php print t('Loading...'); ?></span>
           </a>
         </h2>
-        <div class="content" <?php
-
-        if (count($associations_organization['#items']) > 5) {
-          print "style=\"display:none;\"";
-        }
-
-        ?>>
-          <?php print render($associations_organization); ?>
+        <div class="content" style="display:none;">
+          <ul></ul>
         </div>
       </div>
-      <?php } ?>
-
     </div>
   </div>
-  <?php if (count($materials) > 0) { ?>
-    <div class="row">
-      <div class="materials tabs">
-        <ul class="material-tabs">
-          <?php foreach ($materials as $material) { ?>
-            <li class="material-tab-row"><a href="#material-<?php print $material['type'] ?>"><?php print $material['label'] ?></a><span class="badge"><?php print count($material['elements']['#items']); ?></span></li>
-          <?php } ?>
-        </ul>
+  <div class="row">
+    <div class="materials tabs">
+      <ul class="material-tabs">
         <?php foreach ($materials as $material) { ?>
-          <div class="material-tab-inner-row" id="material-<?php print $material['type']; ?>">
-            <?php print render($material['elements']); ?>
-          </div>
+          <li class="material-tab-row">
+            <a href="#material-<?php print $material['type'] ?>"><?php print $material['label'] ?></a>
+            <span class="badge"><?php print t('Loading...'); ?></span>
+          </li>
         <?php } ?>
-      </div>
+      </ul>
+      <?php foreach ($materials as $material) { ?>
+        <div class="material-tab-inner-row" id="material-<?php print $material['type']; ?>" data-component="<?php print $material['type']; ?>">
+          <ul></ul>
+        </div>
+      <?php } ?>
     </div>
-  <?php } ?>
+  </div>
 </div>

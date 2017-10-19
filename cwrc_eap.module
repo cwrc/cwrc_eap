@@ -348,25 +348,16 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
 
     // Put together association lists (to be populated using ajax).
     $build['#associations_person'] = array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#attributes' => array(),
+      'component' => 'coMentionPerson',
     );
     $build['#associations_place'] = array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#attributes' => array(),
+      'component' => 'coMentionPlace',
     );
     $build['#associations_organization'] = array(
-      '#theme' => 'item_list',
-      '#type' => 'ul',
-      '#items' => array(),
-      '#attributes' => array(),
+      'component' => 'coMentionOrganization',
     );
 
-    // Put together material.
+    // Put together material lists (to be populated by ajax).
     $materials = array('entries_about',
       'entries_other',
       'entries_mentioning',
@@ -378,12 +369,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
       $build['#materials'][$type] = array(
         'label' => _cwrc_eap_map_material_label($type),
         'type' => $type,
-        'elements' => array(
-          '#theme' => 'item_list',
-          '#type' => 'ul',
-          '#attributes' => array(),
-          '#items' => array(),
-        ),
       );
     }
 
