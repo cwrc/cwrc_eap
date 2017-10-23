@@ -81,11 +81,11 @@ function cwrc_eap_xmldb_json($pid, $components = array(), $return = FALSE) {
  */
 function cwrc_eap_xmldb_json_material($pid, $components = array()) {
   $results = cwrc_eap_xmldb_json($pid, $components, TRUE);
-  foreach ($results as $component => $materials) {
+  foreach ($results['material'] as $component => $materials) {
     foreach ($materials as $key => $result) {
       if (is_scalar($result)) {
         $build = array('#theme' => 'cwrc_eap_material', '#pid' => $result);
-        $results[$component][$key] = render($build);
+        $results['material'][$component][$key] = render($build);
       }
     }
   }

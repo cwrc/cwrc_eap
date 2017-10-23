@@ -14,11 +14,11 @@
           $.ajax('/islandora/cwrc-eap/' + Drupal.settings.cwrc_eap_ajax_pid + '/' + component, {
             success: function(data) {
               // Change count on badge and render list.
-              if (typeof(data[component]) != 'undefined') {
-                $(element).find('h2 .badge').text(data[component].length);
+              if (typeof(data.connections[component]) != 'undefined') {
+                $(element).find('h2 .badge').text(data.connections[component].length);
                 var list = $(element).find('.content ul');
-                for(var i = 0; i < data[component].length; i++) {
-                  var obj = data[component][i];
+                for(var i = 0; i < data.connections[component].length; i++) {
+                  var obj = data.connections[component][i];
                   $(list).append('<li><a href="' + obj.uri + '">' + obj.fedoraLabel + '</a></li>');
                 }
               } else {
@@ -44,12 +44,12 @@
           $.ajax('/islandora/cwrc-eap/material/' + Drupal.settings.cwrc_eap_ajax_pid + '/' + component, {
             success: function(data) {
               // Change count on badge and render list.
-              if (typeof(data[component]) != 'undefined') {
-                $('[aria-controls="' + $(element).attr('id') + '"] .badge').text(data[component].length);
-                // $(element).find('h2 .badge').text(data[component].length);
+              if (typeof(data.material[component]) != 'undefined') {
+                $('[aria-controls="' + $(element).attr('id') + '"] .badge').text(data.material[component].length);
+                // $(element).find('h2 .badge').text(data.material[component].length);
                 var list = $(element).find('ul');
-                for(var i = 0; i < data[component].length; i++) {
-                  var html = data[component][i];
+                for(var i = 0; i < data.material[component].length; i++) {
+                  var html = data.material[component][i];
                   $(list).append('<li>' + html + '</li>');
                 }
               } else {
