@@ -428,6 +428,7 @@ function _cwrc_eap_map_material_label($key) {
   $labels = &drupal_static(__FUNCTION__);
   if (!isset($labels)) {
     $labels = array(
+      'entries_other' => t('Entries (Other)'),
       'entries_about' => t('Entries About'),
       'bibliographic_about' => t('Oeuvre'),
       'entries_mentioning' => t('Entries'),
