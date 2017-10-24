@@ -1,309 +1,1502 @@
 {
-  "query_URI": "http://www.geonames.org/6251999",
-  "material": {
-    "entries_about": [],
-    "bilbiographic_about": [
-      "cwrc:17",
-      "cwrc:17",
-      "cwrc:17",
-      "cwrc:17",
-      "cwrc:17",
-      "cwrc:17"
-    ],
-    "entries_mentioning": [
-      "cwrc:17",
-      "cwrc:17",
-      "cwrc:17"
-    ],
-    "bilbiographic_related": [],
-    "multimedia": [
-      "cwrc:17",
-      "cwrc:17",
-      "cwrc:17"
+    "LODSource": "GEONAMES",
+    "cModel": "info:fedora/cwrc:place-entityCModel",
+    "connections": {
+        "coMentionOrganization": [
+            {
+                "fedoraLabel": "University of Alberta",
+                "pid": "cwrc:9537dd23-f4b0-42c4-86c6-547d909a1952",
+                "uri": "http://viaf.org/viaf/147166987"
+            },
+            {
+                "fedoraLabel": "University of Alberta",
+                "pid": "cwrc:06f416f0-85f2-4a85-82e1-976d2829ab35",
+                "uri": "http://viaf.org/viaf/147166987"
+            },
+            {
+                "fedoraLabel": "Canadian Broadcasting Corporation",
+                "pid": "cwrc:c372f520-8ca2-43a9-b27b-2a3a8dbfecd0",
+                "uri": "http://viaf.org/viaf/124250538"
+            },
+            {
+                "fedoraLabel": "University of New Hampshire",
+                "pid": "cwrc:9cadb80d-3a9e-40ee-bfd0-7ef7eacd26fe",
+                "uri": "http://viaf.org/viaf/156870930"
+            },
+            {
+                "fedoraLabel": "University of Pennsylvania",
+                "pid": "cwrc:95d3d7e4-4e47-4601-80c5-7ba78cf48ff1",
+                "uri": "http://viaf.org/viaf/133405555"
+            },
+            {
+                "fedoraLabel": "Adult Learning, Literacy and Essential Skills Program (Canada)",
+                "pid": "cwrc:91bbbf17-2bb2-4b02-8ed6-ebfb49d0df8f",
+                "uri": "http://viaf.org/viaf/181010594"
+            },
+            {
+                "fedoraLabel": "University of Guelph",
+                "pid": "cwrc:2660627e-22f2-4106-bfad-237fcc09b82f",
+                "uri": "http://viaf.org/viaf/125486960"
+            },
+            {
+                "fedoraLabel": "Canadian Council on Social Development.",
+                "pid": "cwrc:0ee3d331-2945-4849-98cb-a835e2564910",
+                "uri": "http://viaf.org/viaf/134800888"
+            },
+            {
+                "fedoraLabel": "Canada",
+                "pid": "cwrc:9350bd15-69fa-4f20-9ec9-acaa01ad627a",
+                "uri": "http://viaf.org/viaf/126280342"
+            },
+            {
+                "fedoraLabel": "University of Alberta",
+                "pid": "cwrc:a36d501f-ea9d-4c12-83d8-a7f22371bf5e",
+                "uri": "http://viaf.org/viaf/155492116"
+            },
+            {
+                "fedoraLabel": "Conseil de recherche en sciences humaines du Canada",
+                "pid": "cwrc:387b4318-cbdd-4479-9da8-80268297ca63",
+                "uri": "http://viaf.org/viaf/150876296"
+            },
+            {
+                "fedoraLabel": "University of Toronto",
+                "pid": "cwrc:864755ba-a3a3-4fc5-9cbc-6d985f6c857d",
+                "uri": "http://viaf.org/viaf/130333233"
+            },
+            {
+                "fedoraLabel": "Université de Montréal",
+                "pid": "cwrc:21009e4a-ae52-42da-a345-596c1776dee9",
+                "uri": "http://viaf.org/viaf/121893957"
+            },
+            {
+                "fedoraLabel": "University of Calgary",
+                "pid": "cwrc:3075d56a-5176-4372-aada-309b9f2b14eb",
+                "uri": "http://viaf.org/viaf/143270900"
+            },
+            {
+                "fedoraLabel": "University Leeds",
+                "pid": "cwrc:bf20b9e6-7406-4ea4-b4c8-6416b622d6cb",
+                "uri": "http://viaf.org/viaf/135669116"
+            },
+            {
+                "fedoraLabel": "University",
+                "pid": "cwrc:a372eda7-17e9-49eb-bd5c-0f9bf3207606",
+                "uri": "http://viaf.org/viaf/144191869"
+            },
+            {
+                "fedoraLabel": "Communist International",
+                "pid": "cwrc:48565dce-e295-4b94-99b3-86fdd90b2f8f",
+                "uri": "http://viaf.org/viaf/154632617"
+            },
+            {
+                "fedoraLabel": "Association des littératures canadiennes et québécoise",
+                "pid": "cwrc:ae8d06de-89e9-493c-a866-209b7f68afe0",
+                "uri": "http://viaf.org/viaf/128922832"
+            },
+            {
+                "fedoraLabel": "Centre de Recherche Interuniversitaire sur la Littérature et la Culture Québécoises Québec; Montréal",
+                "pid": "cwrc:1520d4a5-af30-4a1c-a5be-a01053ef3e5b",
+                "uri": "http://viaf.org/viaf/145371179"
+            },
+            {
+                "fedoraLabel": "Centre Hector-De Saint-Denys-Garneau",
+                "pid": "cwrc:65a163b9-a321-486b-870c-baebd2676bba",
+                "uri": "http://viaf.org/viaf/153567419"
+            },
+            {
+                "fedoraLabel": "Centre Anne-Hébert",
+                "pid": "cwrc:c35a21fc-2f7c-4e5a-9c25-a4c1239e524a",
+                "uri": "http://viaf.org/viaf/135992541"
+            },
+            {
+                "fedoraLabel": "Communist International",
+                "pid": "cwrc:b706dac7-3b38-4fd7-a0e1-2b02304dd30a",
+                "uri": "http://viaf.org/viaf/154632617"
+            },
+            {
+                "fedoraLabel": "Québec.",
+                "pid": "cwrc:5543904f-678c-49d1-b5aa-ccbaee81532b",
+                "uri": "http://viaf.org/viaf/158301808"
+            },
+            {
+                "fedoraLabel": "Mount Royal University",
+                "pid": "cwrc:53ef43cb-1362-4b1a-8972-11b566c471f4",
+                "uri": "http://viaf.org/viaf/147666095"
+            },
+            {
+                "fedoraLabel": "Institut d'études islamiques (Paris)",
+                "pid": "cwrc:1cf2d9c5-8660-4ffc-826d-866be835647e",
+                "uri": "http://viaf.org/viaf/123886017"
+            },
+            {
+                "fedoraLabel": "Dalhousie University",
+                "pid": "cwrc:7a77242b-3fa1-415f-9f6a-2d92963eda32",
+                "uri": "http://viaf.org/viaf/127757839"
+            },
+            {
+                "fedoraLabel": "House of Anansi Press",
+                "pid": "cwrc:b076ff0d-e9c4-47b7-a5c0-7031d38ed9ba",
+                "uri": "http://viaf.org/viaf/268199074"
+            },
+            {
+                "fedoraLabel": "House of Anansi Press",
+                "pid": "cwrc:f0ca36a2-ffce-4460-8110-34c3ed8a4b48",
+                "uri": "http://viaf.org/viaf/268199074"
+            },
+            {
+                "fedoraLabel": "Comité franco-ontarien d'enquête culturelle",
+                "pid": "cwrc:bcc4be11-eac9-40b4-bea9-60367201664e",
+                "uri": "http://viaf.org/viaf/135740561"
+            },
+            {
+                "fedoraLabel": "Bishop Strachan School",
+                "pid": "cwrc:2ee473b6-46da-404e-aed2-2a563e465dd7",
+                "uri": "http://viaf.org/viaf/150055466"
+            },
+            {
+                "fedoraLabel": "Pulp Press",
+                "pid": "cwrc:7e369bb3-858e-4786-8622-f6c66e51760a",
+                "uri": "http://viaf.org/viaf/158331342"
+            },
+            {
+                "fedoraLabel": "Alfred A. Knopf Canada.",
+                "pid": "cwrc:ae67f88b-5e00-46cb-b89b-c9cd7b957ad0",
+                "uri": "http://viaf.org/viaf/311377903"
+            },
+            {
+                "fedoraLabel": "Coach House Press",
+                "pid": "cwrc:144d9223-cf4b-45b5-986a-1ccc4149578d",
+                "uri": "http://viaf.org/viaf/158199848"
+            },
+            {
+                "fedoraLabel": "Talonbooks (Firm)",
+                "pid": "cwrc:f6916af9-4bc6-4536-991b-3c9428bb22b5",
+                "uri": "http://viaf.org/viaf/131660786"
+            },
+            {
+                "fedoraLabel": "Alfred A. Knopf (Nowy Jork).",
+                "pid": "cwrc:92bcad5d-3b96-4586-b0b3-b892fe7a01e3",
+                "uri": "http://viaf.org/viaf/142395924"
+            },
+            {
+                "fedoraLabel": "Royal Conservatory of Music (Toronto).",
+                "pid": "cwrc:91b4734d-83d6-4be8-9426-ddcef05fabe9",
+                "uri": "http://viaf.org/viaf/125576743"
+            },
+            {
+                "fedoraLabel": "All Saint's Cathedral (Edmonton, Alb.)",
+                "pid": "cwrc:e4ee26ea-3ac9-4819-844d-bf449bb66273",
+                "uri": "http://viaf.org/viaf/124267011"
+            },
+            {
+                "fedoraLabel": "Queen's University (Kingston, Ont).",
+                "pid": "cwrc:fd86feb7-a060-4af5-9a3e-d23791cf6079",
+                "uri": "http://viaf.org/viaf/126355495"
+            },
+            {
+                "fedoraLabel": "Tri-State Grain and Stock Growers Association.",
+                "pid": "cwrc:02f1d8ba-66d5-4ce0-854a-c0faf594cf51",
+                "uri": "http://viaf.org/viaf/140850328"
+            },
+            {
+                "fedoraLabel": "Nipissing University College",
+                "pid": "cwrc:f197e5be-c6e8-47f1-b28b-c02f5813ebce",
+                "uri": "http://viaf.org/viaf/124254622"
+            },
+            {
+                "fedoraLabel": "St. Paul's College (Winnipeg, Man.).",
+                "pid": "cwrc:26eaea1a-0e92-40b2-a38b-32a06b8e4689",
+                "uri": "http://viaf.org/viaf/134818360"
+            },
+            {
+                "fedoraLabel": "Université d'Ottawa",
+                "pid": "cwrc:0fd1754c-3301-4c74-a6de-2774897790ce",
+                "uri": "http://viaf.org/viaf/149530551"
+            },
+            {
+                "fedoraLabel": "Compagnie de la Baie d'Hudson",
+                "pid": "cwrc:255c0911-d0f7-4407-9b82-e28269112f43",
+                "uri": "http://viaf.org/viaf/139169065"
+            }
+        ],
+        "coMentionPerson": [
+            {
+                "fedoraLabel": "Erin Mouré",
+                "pid": "cwrc:6db063a5-d2e9-4743-8da8-b73dd5cd5696",
+                "uri": "http://viaf.org/viaf/22186962"
+            },
+            {
+                "fedoraLabel": "Bismuth, Nadine",
+                "pid": "cwrc:65102d16-2f2f-4562-9575-092d1bf8da55",
+                "uri": "http://viaf.org/viaf/37158276"
+            },
+            {
+                "fedoraLabel": "Irvine, Dean",
+                "pid": "cwrc:ac1d3294-2b51-441b-9da0-eaf27a132857",
+                "uri": "http://viaf.org/viaf/56891114"
+            },
+            {
+                "fedoraLabel": "Balzano, Flora",
+                "pid": "cwrc:71ba8f2d-0d7c-4943-ba8a-d378a1285a0d",
+                "uri": "http://viaf.org/viaf/59363153"
+            },
+            {
+                "fedoraLabel": "Bergvall, Caroline",
+                "pid": "cwrc:2f5dd91e-8e93-4833-b3bc-8a1f58a82620",
+                "uri": "http://viaf.org/viaf/63155325"
+            },
+            {
+                "fedoraLabel": "Barbara Godard",
+                "pid": "cwrc:e79f2054-d433-42f7-929e-9080561d8dbd",
+                "uri": "http://viaf.org/viaf/67996917"
+            },
+            {
+                "fedoraLabel": "Savoie, Chantal",
+                "pid": "cwrc:37ce332f-fe9a-4ba9-a378-baf808e68b29",
+                "uri": "http://viaf.org/viaf/105437213"
+            },
+            {
+                "fedoraLabel": "Dorion, Hélène",
+                "pid": "cwrc:c0dcf5bc-7e6b-4ec4-974f-f9d83a8f2438",
+                "uri": "http://viaf.org/viaf/51711659"
+            },
+            {
+                "fedoraLabel": "Gault, Cinda",
+                "pid": "cwrc:de230315-8d7e-44c4-b5b4-b4298a5d41bf",
+                "uri": "http://viaf.org/viaf/33915041"
+            },
+            {
+                "fedoraLabel": "Carrière, Marie J.",
+                "pid": "cwrc:8eda6d0d-f242-47cb-b4f4-b86ba72a9b3e",
+                "uri": "http://viaf.org/viaf/120027154"
+            },
+            {
+                "fedoraLabel": "Dorothy Livesay",
+                "pid": "cwrc:94e9ed75-f162-4c15-948f-78e2ce62550a",
+                "uri": "http://viaf.org/viaf/116854541"
+            },
+            {
+                "fedoraLabel": "Gault, Cinda",
+                "pid": "cwrc:13c5d319-0318-48ef-bccc-64792e303962",
+                "uri": "http://viaf.org/viaf/33915041"
+            },
+            {
+                "fedoraLabel": "Hotte, Lucie",
+                "pid": "cwrc:237c2ef0-2e53-4d6e-87ac-62e232bc54fb",
+                "uri": "http://viaf.org/viaf/32220127"
+            },
+            {
+                "fedoraLabel": "LAURENCE, MARGARET",
+                "pid": "cwrc:4219df78-c99a-4405-a61a-e5e1966b09d3",
+                "uri": "http://viaf.org/viaf/44317974"
+            },
+            {
+                "fedoraLabel": "Brossard, Nicole",
+                "pid": "cwrc:afa76008-735a-4a19-8bb3-2f6b68b5acd5",
+                "uri": "http://viaf.org/viaf/7387642"
+            },
+            {
+                "fedoraLabel": "Elizabeth Smart",
+                "pid": "cwrc:2b42e117-281c-42c5-9471-d66be7a826b0",
+                "uri": "http://viaf.org/viaf/46814469"
+            },
+            {
+                "fedoraLabel": "Atwood, Margaret",
+                "pid": "cwrc:75ba8bc6-2d17-478a-b019-216bd87b7cf1",
+                "uri": "http://viaf.org/viaf/109322990"
+            },
+            {
+                "fedoraLabel": "Virginia Woolf",
+                "pid": "cwrc:d78923d0-b283-4681-8089-dc0b1b9451a8",
+                "uri": "http://viaf.org/viaf/39385478"
+            },
+            {
+                "fedoraLabel": "Dupré, Louise",
+                "pid": "cwrc:f0220f1a-7c63-419d-bfd3-cb8323c15e3e",
+                "uri": "http://viaf.org/viaf/2714957"
+            },
+            {
+                "fedoraLabel": "Gertrude Stein",
+                "pid": "cwrc:96142695-522a-49d9-9612-06ecca4c56e0",
+                "uri": "http://viaf.org/viaf/22149082"
+            },
+            {
+                "fedoraLabel": "Cape, Judith",
+                "pid": "cwrc:9f7e1d19-6aa4-48a1-987b-b6ba48bda9e7",
+                "uri": "http://viaf.org/viaf/59208470"
+            },
+            {
+                "fedoraLabel": "Harper, Stephen",
+                "pid": "cwrc:71404564-f4ee-4919-b707-8e20caa869b2",
+                "uri": "http://viaf.org/viaf/54470012"
+            },
+            {
+                "fedoraLabel": "Moyes, Lianne",
+                "pid": "cwrc:d44f0ed3-fa64-4240-97d3-a0d51fbfd383",
+                "uri": "http://viaf.org/viaf/106348924"
+            },
+            {
+                "fedoraLabel": "Avasilichioaei, O.",
+                "pid": "cwrc:5a134dbb-69d6-4577-a46d-292187f83320",
+                "uri": "http://viaf.org/viaf/58498867"
+            },
+            {
+                "fedoraLabel": "Rudy Dorscht, Susan Arlene,",
+                "pid": "cwrc:ec9ed491-c30b-4aae-bf98-c3969e091272",
+                "uri": "http://viaf.org/viaf/66559269"
+            },
+            {
+                "fedoraLabel": "Butling, Pauline",
+                "pid": "cwrc:b5578418-09d5-4788-87ee-c4c97101dd1a",
+                "uri": "http://viaf.org/viaf/44560494"
+            },
+            {
+                "fedoraLabel": "Dvorak, Marta",
+                "pid": "cwrc:10bbac25-91d2-4c06-b445-843983dada31",
+                "uri": "http://viaf.org/viaf/73853019"
+            },
+            {
+                "fedoraLabel": "Hunter, Lynette",
+                "pid": "cwrc:fcb3b8a4-7bfe-473c-a12e-6a85a298b7ef",
+                "uri": "http://viaf.org/viaf/27086693"
+            },
+            {
+                "fedoraLabel": "Brown, Susan Irene",
+                "pid": "cwrc:6a86f86e-3317-44c8-abc8-fca9c3f891bb",
+                "uri": "http://viaf.org/viaf/104953085"
+            },
+            {
+                "fedoraLabel": "Beyer, Moritz",
+                "pid": "cwrc:627f01b9-0249-4377-aca9-ee992f076838",
+                "uri": "http://viaf.org/viaf/370403"
+            },
+            {
+                "fedoraLabel": "York, Lorraine M.",
+                "pid": "cwrc:2c6d5b03-cad2-4d8e-ae97-f16735874b65",
+                "uri": "http://viaf.org/viaf/41873725"
+            },
+            {
+                "fedoraLabel": "York, Lorraine M.",
+                "pid": "cwrc:42cbffcc-c046-42d5-a177-cb1b8214f2ab",
+                "uri": "http://viaf.org/viaf/41873725"
+            },
+            {
+                "fedoraLabel": "Brandt, Di",
+                "pid": "cwrc:b8f7d011-eabe-47db-a42c-58f5cfbd9bfe",
+                "uri": "http://viaf.org/viaf/8566613"
+            },
+            {
+                "fedoraLabel": "Kroetsch, Robert",
+                "pid": "cwrc:95d6d288-9e92-4cfe-a467-73cd8fb6f968",
+                "uri": "http://viaf.org/viaf/120613489"
+            },
+            {
+                "fedoraLabel": "Glassco, John",
+                "pid": "cwrc:7e3a8b51-6c2b-430d-a5e3-e7600c4832fd",
+                "uri": "http://viaf.org/viaf/69729715"
+            },
+            {
+                "fedoraLabel": "Francis Reginald Scott",
+                "pid": "cwrc:26e77a9b-a121-4e42-b59a-5e3557c53d27",
+                "uri": "http://viaf.org/viaf/108944267"
+            },
+            {
+                "fedoraLabel": "Sampedrín, Elisa",
+                "pid": "cwrc:bef963de-3ae8-4b51-aafd-373929e04a3c",
+                "uri": "http://viaf.org/viaf/21886701"
+            },
+            {
+                "fedoraLabel": "Brand, Dionne",
+                "pid": "cwrc:c476819e-3dcc-4949-8dfd-c506eb280fd6",
+                "uri": "http://viaf.org/viaf/61584279"
+            },
+            {
+                "fedoraLabel": "Sheila Watson",
+                "pid": "cwrc:965e92ef-6273-47fa-b700-abd61b06f094",
+                "uri": "http://viaf.org/viaf/35268398"
+            },
+            {
+                "fedoraLabel": "Anne Wilkinson",
+                "pid": "cwrc:f5b617b2-c881-4c18-96a4-45c9102afe92",
+                "uri": "http://viaf.org/viaf/66513221"
+            },
+            {
+                "fedoraLabel": "Marcotte, Sophie",
+                "pid": "cwrc:686b3b3a-b7fc-490e-96f8-17d08bc6ac8f",
+                "uri": "http://viaf.org/viaf/29706706"
+            },
+            {
+                "fedoraLabel": "Anne Hébert",
+                "pid": "cwrc:24912373-b3fd-47d0-9c0c-895040e88481",
+                "uri": "http://viaf.org/viaf/66468501"
+            },
+            {
+                "fedoraLabel": "Borduas, Paul-Emile",
+                "pid": "cwrc:3a652877-12cf-4efc-bd6e-88cbf0e7cdd8",
+                "uri": "http://viaf.org/viaf/64048778"
+            },
+            {
+                "fedoraLabel": "Antonio Negri",
+                "pid": "cwrc:4edd8480-7d44-4014-8df2-6d4e4facc7db",
+                "uri": "http://viaf.org/viaf/108238827"
+            },
+            {
+                "fedoraLabel": "Todd, Kim",
+                "pid": "cwrc:f4653868-baf9-4147-bf11-dfeeece8c788",
+                "uri": "http://viaf.org/viaf/105492844"
+            },
+            {
+                "fedoraLabel": "Mordecai Richler",
+                "pid": "cwrc:d9ca240a-a3a4-4454-8a8a-f2dfb3288f8b",
+                "uri": "http://viaf.org/viaf/97277621"
+            },
+            {
+                "fedoraLabel": "Barbeau, Marius",
+                "pid": "cwrc:6e0f0087-1a88-43f5-a734-76305905eb53",
+                "uri": "http://viaf.org/viaf/5003901"
+            },
+            {
+                "fedoraLabel": "Carr, Emily",
+                "pid": "cwrc:4d77465a-a6fb-4466-bb06-e5fe6a9f2471",
+                "uri": "http://viaf.org/viaf/56618171"
+            },
+            {
+                "fedoraLabel": "ARNASON, DAVID",
+                "pid": "cwrc:4f866f72-0a36-427f-91c8-03af3b0dbbf1",
+                "uri": "http://viaf.org/viaf/115570529"
+            },
+            {
+                "fedoraLabel": "Renaud, Therese",
+                "pid": "cwrc:282ff006-5963-4399-9649-0fad42c23ee4",
+                "uri": "http://viaf.org/viaf/71404026"
+            },
+            {
+                "fedoraLabel": "Dugas, Marcel",
+                "pid": "cwrc:5c02edb9-cc54-4298-9ed0-99c927160989",
+                "uri": "http://viaf.org/viaf/103651939"
+            },
+            {
+                "fedoraLabel": "Hardt, Michael",
+                "pid": "cwrc:4081392e-ac49-4c0a-b2cf-9d1f2e82c6e5",
+                "uri": "http://viaf.org/viaf/102587001"
+            },
+            {
+                "fedoraLabel": "Miron, Gaston",
+                "pid": "cwrc:0f14a2db-77f0-4ba7-b6dc-b845d2fc76b3",
+                "uri": "http://viaf.org/viaf/111074700"
+            },
+            {
+                "fedoraLabel": "Alain Grandbois",
+                "pid": "cwrc:f3d0cfa5-3e28-4821-86cc-a88b799411e8",
+                "uri": "http://viaf.org/viaf/39402318"
+            },
+            {
+                "fedoraLabel": "Gallant, Mavis",
+                "pid": "cwrc:54984ef1-fbd8-40b0-a158-342a9483cfc5",
+                "uri": "http://viaf.org/viaf/92466956"
+            },
+            {
+                "fedoraLabel": "Adair, Katherine",
+                "pid": "cwrc:c4729511-b5bd-4241-a139-6ca4a409d05d",
+                "uri": "http://viaf.org/viaf/79348177"
+            },
+            {
+                "fedoraLabel": "Cowley, Malcolm",
+                "pid": "cwrc:58b22059-2fd6-4615-abc6-d3f9041067df",
+                "uri": "http://viaf.org/viaf/91308069"
+            },
+            {
+                "fedoraLabel": "Ernest Hemingway",
+                "pid": "cwrc:ee1655d2-d078-4e42-95f4-36c24fc08da5",
+                "uri": "http://viaf.org/viaf/97006051"
+            },
+            {
+                "fedoraLabel": "Gallagher, Leslie",
+                "pid": "cwrc:54d1aff8-60fb-45b3-934a-1dbc32a82c86",
+                "uri": "http://viaf.org/viaf/239096110"
+            },
+            {
+                "fedoraLabel": "Jean-Aubert Loranger",
+                "pid": "cwrc:b3accaf4-f5f0-4902-8d14-616e1ccf38fd",
+                "uri": "http://viaf.org/viaf/19720315"
+            },
+            {
+                "fedoraLabel": "Fernand Leduc",
+                "pid": "cwrc:a74fa068-f7e1-428b-baf0-12fa101eca7d",
+                "uri": "http://viaf.org/viaf/79126147"
+            },
+            {
+                "fedoraLabel": "Dobson, Kit",
+                "pid": "cwrc:95c7bb6d-7a06-4e83-ae69-e950ef6970fa",
+                "uri": "http://viaf.org/viaf/101564703"
+            },
+            {
+                "fedoraLabel": "Alfred Pellan",
+                "pid": "cwrc:d4e683b1-cd07-4feb-ab66-6aa368618744",
+                "uri": "http://viaf.org/viaf/92360323"
+            },
+            {
+                "fedoraLabel": "Godbout, Patricia",
+                "pid": "cwrc:23054bac-96cf-4c51-b8a7-f3f2f6c23133",
+                "uri": "http://viaf.org/viaf/24011176"
+            },
+            {
+                "fedoraLabel": "Jean-Paul Riopelle",
+                "pid": "cwrc:02a5da38-b936-4ede-a603-ec6ec4479f82",
+                "uri": "http://viaf.org/viaf/102316456"
+            },
+            {
+                "fedoraLabel": "Frye, Northrop",
+                "pid": "cwrc:3f2f30d6-c9f9-4c3f-be73-496d428c7861",
+                "uri": "http://viaf.org/viaf/49236705"
+            },
+            {
+                "fedoraLabel": "A. Y. Jackson",
+                "pid": "cwrc:a50d36f1-5590-4b9b-983a-3b5977cbca07",
+                "uri": "http://viaf.org/viaf/47561937"
+            },
+            {
+                "fedoraLabel": "Callaghan, Morley",
+                "pid": "cwrc:6dee8a73-43e4-46df-b18e-96f7c464e6ff",
+                "uri": "http://viaf.org/viaf/115291182"
+            },
+            {
+                "fedoraLabel": "Butler, Judith",
+                "pid": "cwrc:b8912c99-9412-4fcc-ac6d-b2964b8de8d4",
+                "uri": "http://viaf.org/viaf/98486723"
+            },
+            {
+                "fedoraLabel": "Guillaume Vigneault",
+                "pid": "cwrc:c381e2b1-d923-49a4-a88f-1adca6896492",
+                "uri": "http://viaf.org/viaf/70124222"
+            },
+            {
+                "fedoraLabel": "May, Robert G.",
+                "pid": "cwrc:ee1e400b-d7f5-488a-8898-1842ec17acb3",
+                "uri": "http://viaf.org/viaf/246477353"
+            },
+            {
+                "fedoraLabel": "Barker, Elspeth",
+                "pid": "cwrc:8407538a-35a2-499f-a489-79c14e6a9486",
+                "uri": "http://viaf.org/viaf/52421080"
+            },
+            {
+                "fedoraLabel": "Watteyne, Nathalie",
+                "pid": "cwrc:3fed85c6-a390-4cdb-8bae-883f38ee1a92",
+                "uri": "http://viaf.org/viaf/66687976"
+            },
+            {
+                "fedoraLabel": "Barker, George",
+                "pid": "cwrc:0fccdda3-3805-421a-a2a8-9dd5b6a25d13",
+                "uri": "http://viaf.org/viaf/109310084"
+            },
+            {
+                "fedoraLabel": "Dany Laferrière",
+                "pid": "cwrc:7a3ddae9-b7ad-4c87-909c-0dbfaf787645",
+                "uri": "http://viaf.org/viaf/87061403"
+            },
+            {
+                "fedoraLabel": "Joubert, Lucie",
+                "pid": "cwrc:359da314-878d-472a-a25f-a1d02b160668",
+                "uri": "http://viaf.org/viaf/54329196"
+            },
+            {
+                "fedoraLabel": "Alice Munro",
+                "pid": "cwrc:3b6b7625-8065-49c0-a6de-abeb083a5c29",
+                "uri": "http://viaf.org/viaf/68944521"
+            },
+            {
+                "fedoraLabel": "Christian Mistral",
+                "pid": "cwrc:1855e248-0158-4517-808e-32c8a6d3bea9",
+                "uri": "http://viaf.org/viaf/28685297"
+            },
+            {
+                "fedoraLabel": "Dennis Lee",
+                "pid": "cwrc:95f2b8b1-7474-4b97-89d7-3c892af1ff70",
+                "uri": "http://viaf.org/viaf/150749702"
+            },
+            {
+                "fedoraLabel": "Lespérance, John",
+                "pid": "cwrc:3937ecaa-4ccc-4a03-8497-f2cbf2dad594",
+                "uri": "http://viaf.org/viaf/70558556"
+            },
+            {
+                "fedoraLabel": "Kirby, William",
+                "pid": "cwrc:676843bb-faa2-4b85-83d4-9c8ed612b3bf",
+                "uri": "http://viaf.org/viaf/79252548"
+            },
+            {
+                "fedoraLabel": "Sugars, C.",
+                "pid": "cwrc:518ebbcb-2e9e-43b7-a596-aed8d2f3bf65",
+                "uri": "http://viaf.org/viaf/119716738"
+            },
+            {
+                "fedoraLabel": "Edwards, Justin D.",
+                "pid": "cwrc:293b845d-2048-4bcf-9c9f-fa09947df8a3",
+                "uri": "http://viaf.org/viaf/116861733"
+            },
+            {
+                "fedoraLabel": "Murphy, Carl",
+                "pid": "cwrc:9f6f21af-1810-453e-ae23-2d56ccfde7e5",
+                "uri": "http://viaf.org/viaf/105684357"
+            },
+            {
+                "fedoraLabel": "Hughes, William",
+                "pid": "cwrc:ac3f0da0-bf29-4345-98c7-713478899416",
+                "uri": "http://viaf.org/viaf/42015481"
+            },
+            {
+                "fedoraLabel": "Howells, Coral Ann",
+                "pid": "cwrc:721f6192-dabf-48f9-b2c8-d07288fca100",
+                "uri": "http://viaf.org/viaf/93675286"
+            },
+            {
+                "fedoraLabel": "Parker, Gilbert",
+                "pid": "cwrc:087d0b1c-7948-4ddd-8546-09c52ca5b29a",
+                "uri": "http://viaf.org/viaf/30652438"
+            },
+            {
+                "fedoraLabel": "Sugars, C.",
+                "pid": "cwrc:6441e809-ae92-4462-923b-b0d924dfa57c",
+                "uri": "http://viaf.org/viaf/119716738"
+            },
+            {
+                "fedoraLabel": "Gross, Konrad",
+                "pid": "cwrc:d45067e4-31fb-40a2-95af-94563905bb61",
+                "uri": "http://viaf.org/viaf/115783157"
+            },
+            {
+                "fedoraLabel": "Northey, Margot",
+                "pid": "cwrc:e3e76e9b-f3ca-4e7e-a07e-5b23d7729f16",
+                "uri": "http://viaf.org/viaf/117980066"
+            },
+            {
+                "fedoraLabel": "Rothenburger, Sunnie",
+                "pid": "cwrc:cbdc3765-4423-4c21-82bb-84043056b8d3",
+                "uri": "http://viaf.org/viaf/102769745"
+            },
+            {
+                "fedoraLabel": "Brooke, Frances",
+                "pid": "cwrc:2703ebd7-174a-4ae4-8993-b59e66afbec9",
+                "uri": "http://viaf.org/viaf/5193747"
+            },
+            {
+                "fedoraLabel": "John Richardson",
+                "pid": "cwrc:c89869a7-8ddb-47e8-9be0-1790aaa697e2",
+                "uri": "http://viaf.org/viaf/39386255"
+            },
+            {
+                "fedoraLabel": "Stockdale, John C.",
+                "pid": "cwrc:7e47e57f-e151-40b0-85f8-282befba303a",
+                "uri": "http://viaf.org/viaf/93288616"
+            },
+            {
+                "fedoraLabel": "Fleming, May Agnes",
+                "pid": "cwrc:5f646420-0aa2-4a74-9d1f-06fc6971d974",
+                "uri": "http://viaf.org/viaf/33401634"
+            },
+            {
+                "fedoraLabel": "Murray, Heather",
+                "pid": "cwrc:9407b35a-c8c5-4b62-97c8-f9a0edb97e82",
+                "uri": "http://viaf.org/viaf/115138083"
+            },
+            {
+                "fedoraLabel": "Alfred Bailey",
+                "pid": "cwrc:079a3b86-f65a-4732-bd4e-082e79f8e49b",
+                "uri": "http://viaf.org/viaf/91241341"
+            },
+            {
+                "fedoraLabel": "Devereux, Cecily Margaret",
+                "pid": "cwrc:20f43425-8637-4859-b17d-43c369e7bd7f",
+                "uri": "http://viaf.org/viaf/31722451"
+            },
+            {
+                "fedoraLabel": "Moodie, Susanna",
+                "pid": "cwrc:69c46e98-acb8-44a2-8d69-a9801e594d76",
+                "uri": "http://viaf.org/viaf/20989"
+            },
+            {
+                "fedoraLabel": "John Milton",
+                "pid": "cwrc:09298504-e7d4-4e1a-b036-7180d9912e09",
+                "uri": "http://viaf.org/viaf/17226855"
+            },
+            {
+                "fedoraLabel": "Dean, Misao",
+                "pid": "cwrc:8abd064c-79c2-4a29-a30c-fccbcc3a3a89",
+                "uri": "http://viaf.org/viaf/44478665"
+            },
+            {
+                "fedoraLabel": "Andrew Smith",
+                "pid": "cwrc:b96bbd78-adce-4b39-b945-afe7275be5f5",
+                "uri": "http://viaf.org/viaf/12532520"
+            },
+            {
+                "fedoraLabel": "De Mille, James",
+                "pid": "cwrc:692d91ed-b96f-40a4-a15c-92d8072c90e2",
+                "uri": "http://viaf.org/viaf/62350932"
+            },
+            {
+                "fedoraLabel": "Veeder, William",
+                "pid": "cwrc:5c4a2356-a47c-493c-a2ed-fe41a40e0314",
+                "uri": "http://viaf.org/viaf/108435215"
+            },
+            {
+                "fedoraLabel": "Gerson, Carole",
+                "pid": "cwrc:1b80ebce-7e47-4f3c-b92e-dfea9911f222",
+                "uri": "http://viaf.org/viaf/217513681"
+            },
+            {
+                "fedoraLabel": "Turcotte, Gerry",
+                "pid": "cwrc:c0bc7c87-5916-46ae-a334-c9bae5b734bb",
+                "uri": "http://viaf.org/viaf/43473203"
+            },
+            {
+                "fedoraLabel": "Leprohon, Rosanna E.",
+                "pid": "cwrc:dc1bad54-6202-4020-bc0b-781fb6a13d03",
+                "uri": "http://viaf.org/viaf/205196210"
+            },
+            {
+                "fedoraLabel": "Hart, Julia Carherine Beckwith",
+                "pid": "cwrc:98f35987-12a1-48bd-a010-f257fc5285ae",
+                "uri": "http://viaf.org/viaf/76384880"
+            },
+            {
+                "fedoraLabel": "MacMaster, Lindsey,",
+                "pid": "cwrc:613ba41b-7a06-4fb0-bd23-38dc6bdac593",
+                "uri": "http://viaf.org/viaf/36720142"
+            },
+            {
+                "fedoraLabel": "Szeman, Imre",
+                "pid": "cwrc:d778163c-fbe0-41f8-995e-43a5e8073b41",
+                "uri": "http://viaf.org/viaf/61787936"
+            },
+            {
+                "fedoraLabel": "MONTAGNES, ANNE",
+                "pid": "cwrc:6c3ca793-b8bb-479a-8f3d-72b1f6553da2",
+                "uri": "http://viaf.org/viaf/9717119"
+            },
+            {
+                "fedoraLabel": "Grace, Sherrill E.",
+                "pid": "cwrc:4856d26b-d4e5-4682-8698-f9cac1380939",
+                "uri": "http://viaf.org/viaf/34469280"
+            },
+            {
+                "fedoraLabel": "Lukacs, Gyorgy",
+                "pid": "cwrc:053eae9e-12c5-40dd-bc0b-6bb5100b1cd4",
+                "uri": "http://viaf.org/viaf/46764285"
+            },
+            {
+                "fedoraLabel": "MacSween, R. J",
+                "pid": "cwrc:e8a30c00-8051-4307-9739-7ae156f07fa4",
+                "uri": "http://viaf.org/viaf/17002126"
+            },
+            {
+                "fedoraLabel": "Lever, Bernice",
+                "pid": "cwrc:cc418eeb-d2f0-423e-93a5-e1bb3fe84894",
+                "uri": "http://viaf.org/viaf/31157281"
+            },
+            {
+                "fedoraLabel": "Rudy Wiebe",
+                "pid": "cwrc:09788de3-0489-4908-91b0-fa70da70a693",
+                "uri": "http://viaf.org/viaf/39385421"
+            },
+            {
+                "fedoraLabel": "Fulford, Robert",
+                "pid": "cwrc:7e055405-d5a1-4a9e-ae64-2b8157fe00b0",
+                "uri": "http://viaf.org/viaf/94296765"
+            },
+            {
+                "fedoraLabel": "Grace, Sherrill E.",
+                "pid": "cwrc:a6ca46da-da92-40aa-a818-2f004ebe269b",
+                "uri": "http://viaf.org/viaf/34469280"
+            },
+            {
+                "fedoraLabel": "Reid, Martine",
+                "pid": "cwrc:2880badf-617f-4cd2-95c5-c5905376b9ca",
+                "uri": "http://viaf.org/viaf/73889695"
+            },
+            {
+                "fedoraLabel": "Chiasson, Herménégilde",
+                "pid": "cwrc:499f6658-8d27-4ffb-980e-5d6aed3acf93",
+                "uri": "http://viaf.org/viaf/36934048"
+            },
+            {
+                "fedoraLabel": "Renwick, Roger de V.,",
+                "pid": "cwrc:920f29c8-2431-4c9c-ae45-bc1b56b72106",
+                "uri": "http://viaf.org/viaf/103982524"
+            },
+            {
+                "fedoraLabel": "Greenhill, Pauline",
+                "pid": "cwrc:273af18d-b1bc-49ff-a819-4d07e63a6444",
+                "uri": "http://viaf.org/viaf/18627631"
+            },
+            {
+                "fedoraLabel": "Alec McHoul",
+                "pid": "cwrc:84a3aa52-eca7-4709-8a70-af8e7f6383af",
+                "uri": "http://viaf.org/viaf/2537401"
+            },
+            {
+                "fedoraLabel": "Alexandre Kojève",
+                "pid": "cwrc:21e70b29-b93b-4b3f-b8a7-a219c11c259d",
+                "uri": "http://viaf.org/viaf/13017"
+            },
+            {
+                "fedoraLabel": "HORKHEIMER, Max",
+                "pid": "cwrc:36db2cae-87f5-420c-9cd2-6890b74c6485",
+                "uri": "http://viaf.org/viaf/14771315"
+            },
+            {
+                "fedoraLabel": "Adorno, Theodor W.",
+                "pid": "cwrc:4647c673-7592-4d73-b97c-eaaba3935859",
+                "uri": "http://viaf.org/viaf/95247377"
+            },
+            {
+                "fedoraLabel": "Martha Woodmansee",
+                "pid": "cwrc:80e3df5e-f575-4dcd-bf11-873fb285b12b",
+                "uri": "http://viaf.org/viaf/12428950"
+            },
+            {
+                "fedoraLabel": "C. Wright Mills",
+                "pid": "cwrc:4495b8a0-75b8-4d68-aae6-5347a0912274",
+                "uri": "http://viaf.org/viaf/100236274"
+            },
+            {
+                "fedoraLabel": "Erich Fromm",
+                "pid": "cwrc:bf5172e1-6f02-4aab-9066-0460817ca52c",
+                "uri": "http://viaf.org/viaf/66467430"
+            },
+            {
+                "fedoraLabel": "Davey, Frank",
+                "pid": "cwrc:705b1de5-32e8-44ce-a256-8bf52e0d2a4d",
+                "uri": "http://viaf.org/viaf/5029235"
+            },
+            {
+                "fedoraLabel": "Herbert Marcuse",
+                "pid": "cwrc:e582b6e2-cbd8-4ed5-88fa-7cd59d03c555",
+                "uri": "http://viaf.org/viaf/36921579"
+            },
+            {
+                "fedoraLabel": "Hall, Stuart",
+                "pid": "cwrc:2787534d-b8aa-4ef7-af7e-7ead5b993e90",
+                "uri": "http://viaf.org/viaf/68998327"
+            },
+            {
+                "fedoraLabel": "Jamison, Andrew",
+                "pid": "cwrc:1e2b8fa9-09c3-47e3-9824-e9da82128d53",
+                "uri": "http://viaf.org/viaf/108305312"
+            },
+            {
+                "fedoraLabel": "Arendt, Channa",
+                "pid": "cwrc:f8c7f824-137e-418e-9ade-6b5a6e8b0936",
+                "uri": "http://viaf.org/viaf/105151053"
+            },
+            {
+                "fedoraLabel": "Ariel Dorfman",
+                "pid": "cwrc:703413bc-a1a4-45df-bc98-0b628a8e88e1",
+                "uri": "http://viaf.org/viaf/95177323"
+            },
+            {
+                "fedoraLabel": "Debord, Guy",
+                "pid": "cwrc:1de38ebc-224a-471d-a17b-26dd593949aa",
+                "uri": "http://viaf.org/viaf/44297675"
+            },
+            {
+                "fedoraLabel": "Keith, W. J.",
+                "pid": "cwrc:9a72ce9f-54f8-481f-af2b-4d56f1332292",
+                "uri": "http://viaf.org/viaf/32010086"
+            },
+            {
+                "fedoraLabel": "Eyerman, Ron",
+                "pid": "cwrc:01e1ed92-1e85-42ac-bd6b-250dddbca1c9",
+                "uri": "http://viaf.org/viaf/24681618"
+            },
+            {
+                "fedoraLabel": "Blaser, Robin",
+                "pid": "cwrc:cad2db64-de99-431a-b7cd-99b23d8d13c3",
+                "uri": "http://viaf.org/viaf/17240199"
+            },
+            {
+                "fedoraLabel": "Wigod, Rebecca,",
+                "pid": "cwrc:b432aa71-2d45-48eb-9ea7-828b3dec97c0",
+                "uri": "http://viaf.org/viaf/104290343"
+            },
+            {
+                "fedoraLabel": "Hoggart, Richard",
+                "pid": "cwrc:1255ff48-694f-433f-844a-52d21055bfc1",
+                "uri": "http://viaf.org/viaf/109123740"
+            },
+            {
+                "fedoraLabel": "Driscoll, Susan",
+                "pid": "cwrc:97001c11-234f-4bb1-8ca5-4eedcc6e46f1",
+                "uri": "http://viaf.org/viaf/1799418"
+            },
+            {
+                "fedoraLabel": "Bell, Daniel",
+                "pid": "cwrc:1615d5c7-fe5c-42a3-8ec0-404d5ba2cac0",
+                "uri": "http://viaf.org/viaf/108273432"
+            },
+            {
+                "fedoraLabel": "MacDonald, Scott",
+                "pid": "cwrc:d3d42b3e-1e4b-4b50-8ffa-aae7a2019df2",
+                "uri": "http://viaf.org/viaf/106101861"
+            },
+            {
+                "fedoraLabel": "Martel, Yann",
+                "pid": "cwrc:75e5fd0d-f4d2-431a-8c25-dbd53a26fdba",
+                "uri": "http://viaf.org/viaf/85372278"
+            },
+            {
+                "fedoraLabel": "Dave Godfrey",
+                "pid": "cwrc:a0101664-663a-4564-b82f-e8b7be128abc",
+                "uri": "http://viaf.org/viaf/114760114"
+            },
+            {
+                "fedoraLabel": "Melnyk, George",
+                "pid": "cwrc:11c188a5-0765-4836-93a4-66c710167c19",
+                "uri": "http://viaf.org/viaf/79126936"
+            },
+            {
+                "fedoraLabel": "Ann-Marie MacDonald",
+                "pid": "cwrc:601cef50-481a-4890-a522-07d169630426",
+                "uri": "http://viaf.org/viaf/32833814"
+            },
+            {
+                "fedoraLabel": "Aritha Van Herk",
+                "pid": "cwrc:1cb14b68-f6be-4719-975e-732754466f13",
+                "uri": "http://viaf.org/viaf/110789564"
+            },
+            {
+                "fedoraLabel": "Hurtig, Mel",
+                "pid": "cwrc:8a713cbc-768f-488e-99f1-d708cb0134f5",
+                "uri": "http://viaf.org/viaf/18033617"
+            },
+            {
+                "fedoraLabel": "Anderson-Dargatz, Gail",
+                "pid": "cwrc:c99dc9bd-b73b-4ced-bdfc-89ee68f9c6de",
+                "uri": "http://viaf.org/viaf/61710472"
+            },
+            {
+                "fedoraLabel": "Miriam Toews",
+                "pid": "cwrc:108e3131-0875-420b-80d4-04e197b7c718",
+                "uri": "http://viaf.org/viaf/56942779"
+            },
+            {
+                "fedoraLabel": "Barbour, Douglas",
+                "pid": "cwrc:5c208b4f-d3d6-4b96-ae96-3b47b67d166e",
+                "uri": "http://viaf.org/viaf/14864700"
+            },
+            {
+                "fedoraLabel": "Michael Ondaatje",
+                "pid": "cwrc:8308f56c-f094-42bb-8222-e3e75abad9c9",
+                "uri": "http://viaf.org/viaf/111941870"
+            },
+            {
+                "fedoraLabel": "Lucy Maud Montgomery",
+                "pid": "cwrc:fb6c3bf8-751b-4860-8b69-4380828eeb0c",
+                "uri": "http://viaf.org/viaf/27203212"
+            },
+            {
+                "fedoraLabel": "BpNichol",
+                "pid": "cwrc:22dc8702-6f39-4004-9ab9-8d58419a3e01",
+                "uri": "http://viaf.org/viaf/76350280"
+            },
+            {
+                "fedoraLabel": "Ayaan Hirsi Ali",
+                "pid": "cwrc:0c891842-d1e9-4dab-a62d-c3c454bb1d9c",
+                "uri": "http://viaf.org/viaf/100329178"
+            },
+            {
+                "fedoraLabel": "MISTRY, ROHINTON",
+                "pid": "cwrc:1afc8bd7-95fc-4dc8-b80c-7b09eff469fc",
+                "uri": "http://viaf.org/viaf/29581388"
+            },
+            {
+                "fedoraLabel": "Anita Rau Badami",
+                "pid": "cwrc:9ff1b977-c633-4142-89f7-61fd3a146aaf",
+                "uri": "http://viaf.org/viaf/7605720"
+            },
+            {
+                "fedoraLabel": "Josef Škvorecký",
+                "pid": "cwrc:b362267c-a80e-48be-98a1-9f4f9877bfc8",
+                "uri": "http://viaf.org/viaf/83176668"
+            },
+            {
+                "fedoraLabel": "Rushdie, Salman",
+                "pid": "cwrc:782f9dce-048e-4d96-96a7-ddc8ab974bfb",
+                "uri": "http://viaf.org/viaf/29540187"
+            },
+            {
+                "fedoraLabel": "Ellis, Miriam Green",
+                "pid": "cwrc:e14d812f-0859-447a-84c8-c469960b14cf",
+                "uri": "http://viaf.org/viaf/293858561"
+            },
+            {
+                "fedoraLabel": "Oprah Winfrey",
+                "pid": "cwrc:5932e8f0-5d47-4724-8728-e2c0a12911a7",
+                "uri": "http://viaf.org/viaf/27226716"
+            },
+            {
+                "fedoraLabel": "Klein, Naomi",
+                "pid": "cwrc:25862521-0469-4fb9-92d9-d78af6b0dabd",
+                "uri": "http://viaf.org/viaf/98653009"
+            },
+            {
+                "fedoraLabel": "Adichie, Amanda N.",
+                "pid": "cwrc:3066266e-237c-450d-a163-67173f5148a9",
+                "uri": "http://viaf.org/viaf/87194517"
+            },
+            {
+                "fedoraLabel": "Ellis, Miriam Green",
+                "pid": "cwrc:5bdd6215-92e6-41af-816e-1342dc210fae",
+                "uri": "http://viaf.org/viaf/293858561"
+            },
+            {
+                "fedoraLabel": "Iyer, Pico",
+                "pid": "cwrc:bd1de656-e797-4e93-a1f9-7e10649d5de1",
+                "uri": "http://viaf.org/viaf/27994903"
+            },
+            {
+                "fedoraLabel": "Ella Cora Hind",
+                "pid": "cwrc:9ea7ede0-7152-4ae5-9f40-1e0bcd4e4d3d",
+                "uri": "http://viaf.org/viaf/33099133"
+            },
+            {
+                "fedoraLabel": "M. G. Vassanji",
+                "pid": "cwrc:28d67fed-128c-4d49-9804-2988790870cb",
+                "uri": "http://viaf.org/viaf/96951910"
+            },
+            {
+                "fedoraLabel": "Akeley, Mary L. Jobe",
+                "pid": "cwrc:c1c2be5b-b5df-4613-8116-131e66b631d5",
+                "uri": "http://viaf.org/viaf/72912733"
+            },
+            {
+                "fedoraLabel": "Howes, E. A.",
+                "pid": "cwrc:a7250184-3de1-460a-9a37-5212978aff7c",
+                "uri": "http://viaf.org/viaf/37283888"
+            },
+            {
+                "fedoraLabel": "Drummond, Lewis",
+                "pid": "cwrc:7e960cdc-fe0e-4990-aba3-06239525b742",
+                "uri": "http://viaf.org/viaf/53043072"
+            },
+            {
+                "fedoraLabel": "Herring, Frances E.",
+                "pid": "cwrc:db562868-8c1b-45aa-85a6-204936ca4dfd",
+                "uri": "http://viaf.org/viaf/104489330"
+            },
+            {
+                "fedoraLabel": "Elizabeth Taylor",
+                "pid": "cwrc:0efbfb6d-f915-4d72-b7c1-a85772583310",
+                "uri": "http://viaf.org/viaf/26158485"
+            },
+            {
+                "fedoraLabel": "Blackwood, Harriot G.",
+                "pid": "cwrc:ac1a8c84-87bd-49bf-b57e-f35a0f26c7cc",
+                "uri": "http://viaf.org/viaf/57790387"
+            },
+            {
+                "fedoraLabel": "Vyvyan, C. C.",
+                "pid": "cwrc:36446aff-ae39-457d-967d-801abd6d6815",
+                "uri": "http://viaf.org/viaf/41462204"
+            },
+            {
+                "fedoraLabel": "McCalla, W. L.",
+                "pid": "cwrc:b5f64779-4dd0-4283-8a32-a69f32f7788d",
+                "uri": "http://viaf.org/viaf/18710836"
+            },
+            {
+                "fedoraLabel": "Ruth St. Denis",
+                "pid": "cwrc:077e24a6-3c07-4658-84c4-58728cadd082",
+                "uri": "http://viaf.org/viaf/29511349"
+            },
+            {
+                "fedoraLabel": "Kerr, William A.",
+                "pid": "cwrc:86984299-2a0d-4481-83a7-a7c27d78050d",
+                "uri": "http://viaf.org/viaf/85389257"
+            },
+            {
+                "fedoraLabel": "Aberdeen and Temair, Ishbel Gordon",
+                "pid": "cwrc:7264faf6-5e90-429c-b311-bda46d94370e",
+                "uri": "http://viaf.org/viaf/69729082"
+            },
+            {
+                "fedoraLabel": "Jephson,",
+                "pid": "cwrc:c86b2eb0-078c-41ee-91b0-157c3259a240",
+                "uri": "http://viaf.org/viaf/104455562"
+            },
+            {
+                "fedoraLabel": "Zeman, Brenda",
+                "pid": "cwrc:2f04ae14-ce77-4cc2-8580-4238be0db793",
+                "uri": "http://viaf.org/viaf/314805436"
+            },
+            {
+                "fedoraLabel": "Althusser, L.",
+                "pid": "cwrc:23a09ff5-f174-48b8-952f-a0c3c72e0c55",
+                "uri": "http://viaf.org/viaf/24596917"
+            },
+            {
+                "fedoraLabel": "Bertolt Brecht",
+                "pid": "cwrc:6aca339c-9431-4e2c-bab1-3fac392228ae",
+                "uri": "http://viaf.org/viaf/2467372"
+            },
+            {
+                "fedoraLabel": "Bertolt Brecht",
+                "pid": "cwrc:8b7b61b6-5ba4-4eaf-a4c7-c475ab07f32a",
+                "uri": "http://viaf.org/viaf/2467372"
+            },
+            {
+                "fedoraLabel": "Djwa, Sandra",
+                "pid": "cwrc:6b44bc52-1fc5-4379-9da0-fdc9d0c18dcf",
+                "uri": "http://viaf.org/viaf/32010922"
+            },
+            {
+                "fedoraLabel": "Pollock, Z.",
+                "pid": "cwrc:39031526-06bc-4b73-a7de-fb6d93186c65",
+                "uri": "http://viaf.org/viaf/93165633"
+            },
+            {
+                "fedoraLabel": "Sime, J. G.",
+                "pid": "cwrc:37a3f69e-2fb6-471e-be59-8acffcc08279",
+                "uri": "http://viaf.org/viaf/105426589"
+            }
+        ],
+        "coMentionPlace": [
+            {
+                "fedoraLabel": "Winnipeg",
+                "pid": "cwrc:3cf917d5-37ad-46b1-a80e-a60ceb0c0895",
+                "uri": "http://www.geonames.org/6183235"
+            },
+            {
+                "fedoraLabel": "Canada",
+                "pid": "cwrc:cd21f862-8add-44d9-9d11-f6f9d5fad3aa",
+                "uri": "http://www.geonames.org/6251999"
+            },
+            {
+                "fedoraLabel": "Ontario",
+                "pid": "cwrc:68577285-909b-4ab2-91e0-8c4f15825e78",
+                "uri": "http://www.geonames.org/6093943"
+            },
+            {
+                "fedoraLabel": "New Zealand",
+                "pid": "cwrc:014c4a43-dcd8-4e90-b3e8-2b4ee77e695f",
+                "uri": "http://www.geonames.org/2186224"
+            },
+            {
+                "fedoraLabel": "British Columbia",
+                "pid": "cwrc:b564f52b-f1aa-4390-9425-e35d0e9f58f4",
+                "uri": "http://www.geonames.org/5909050"
+            },
+            {
+                "fedoraLabel": "Toronto",
+                "pid": "cwrc:db511e9d-4306-49fe-ae03-fa2f4412b5f7",
+                "uri": "http://www.geonames.org/6167865"
+            },
+            {
+                "fedoraLabel": "Ireland",
+                "pid": "cwrc:45946180-de55-4720-a5e8-910e1c573dc9",
+                "uri": "http://www.geonames.org/2963597"
+            },
+            {
+                "fedoraLabel": "Paris",
+                "pid": "cwrc:42922ef4-889d-4c71-87cb-28626a3eaa97",
+                "uri": "http://www.geonames.org/2988507"
+            },
+            {
+                "fedoraLabel": "Dublin",
+                "pid": "cwrc:8efc348f-20dc-438a-b1a7-ef6174fd78e8",
+                "uri": "http://www.geonames.org/2964574"
+            },
+            {
+                "fedoraLabel": "Paris",
+                "pid": "cwrc:1e6bad17-b521-456b-993c-94f70804a664",
+                "uri": "http://www.geonames.org/2988507"
+            },
+            {
+                "fedoraLabel": "Québec",
+                "pid": "cwrc:3e556bf5-0352-47ef-9fe8-53a3c19f7957",
+                "uri": "http://www.geonames.org/6325494"
+            },
+            {
+                "fedoraLabel": "Republic of Mali",
+                "pid": "cwrc:86042924-e9a2-42ea-9e3d-3ef9f9463c1a",
+                "uri": "http://www.geonames.org/2453866"
+            },
+            {
+                "fedoraLabel": "Ireland",
+                "pid": "cwrc:8f2dfc17-8938-46b5-90eb-9fd3deb4e682",
+                "uri": "http://www.geonames.org/2963597"
+            },
+            {
+                "fedoraLabel": "England",
+                "pid": "cwrc:543a41fb-e7e6-4edf-997d-2d46eec5d24b",
+                "uri": "http://www.geonames.org/6269131"
+            },
+            {
+                "fedoraLabel": "United States",
+                "pid": "cwrc:a8054a25-d849-478e-95a8-4f911f236b3c",
+                "uri": "http://www.geonames.org/6252001"
+            },
+            {
+                "fedoraLabel": "Dublin",
+                "pid": "cwrc:04c3d075-d6c2-44c3-aabe-00ba4a81e327",
+                "uri": "http://www.geonames.org/2964574"
+            },
+            {
+                "fedoraLabel": "Vancouver",
+                "pid": "cwrc:8134a2ec-88d3-451a-9963-4db1a2decdc7",
+                "uri": "http://www.geonames.org/6173331"
+            },
+            {
+                "fedoraLabel": "Montréal",
+                "pid": "cwrc:b2c5d9f1-6b0a-4187-b02e-fe93105ed03a",
+                "uri": "http://www.geonames.org/6077243"
+            },
+            {
+                "fedoraLabel": "Prince Edward Island",
+                "pid": "cwrc:07ae1df7-7952-4bd4-8135-6a4fcc15a4a4",
+                "uri": "http://www.geonames.org/6113358"
+            },
+            {
+                "fedoraLabel": "Saskatchewan",
+                "pid": "cwrc:46150f97-77e6-423d-828e-8c6116cc38c3",
+                "uri": "http://www.geonames.org/6141242"
+            },
+            {
+                "fedoraLabel": "Manitoba",
+                "pid": "cwrc:89ab3923-b55c-4781-86b5-5dce3cc13b99",
+                "uri": "http://www.geonames.org/6065171"
+            },
+            {
+                "fedoraLabel": "Edmonton",
+                "pid": "cwrc:abb6c2f4-e7eb-44b5-947c-d539c4370c65",
+                "uri": "http://www.geonames.org/5946768"
+            },
+            {
+                "fedoraLabel": "New Brunswick/Nouveau-Brunswick",
+                "pid": "cwrc:1b59fdbf-4597-4483-9620-b9be3fe1337c",
+                "uri": "http://www.geonames.org/6087430"
+            },
+            {
+                "fedoraLabel": "Alberta",
+                "pid": "cwrc:0fab1740-ea22-447e-aea3-f6c11e3cb75c",
+                "uri": "http://www.geonames.org/5883102"
+            },
+            {
+                "fedoraLabel": "Manitoba",
+                "pid": "cwrc:34e22f21-8393-4edc-a5d1-22560ebcb614",
+                "uri": "http://www.geonames.org/6065171"
+            },
+            {
+                "fedoraLabel": "London",
+                "pid": "cwrc:a5bbe1fb-2568-445a-b9ee-bf4c9e6e97b0",
+                "uri": "http://www.geonames.org/2643743"
+            },
+            {
+                "fedoraLabel": "Québec",
+                "pid": "cwrc:020d7b13-ce45-410c-88c1-3e3fba46a15a",
+                "uri": "http://www.geonames.org/6115047"
+            },
+            {
+                "fedoraLabel": "New York City",
+                "pid": "cwrc:4b142025-6a17-4b98-8bd0-bca9201f9fbb",
+                "uri": "http://www.geonames.org/5128581"
+            },
+            {
+                "fedoraLabel": "London",
+                "pid": "cwrc:081c109f-3ce9-45c0-b46e-90f088475c90",
+                "uri": "http://www.geonames.org/2643743"
+            },
+            {
+                "fedoraLabel": "Québec",
+                "pid": "cwrc:ac2d611f-9a0f-43c9-bf7c-392060247373",
+                "uri": "http://www.geonames.org/6115047"
+            },
+            {
+                "fedoraLabel": "United Kingdom of Great Britain and Northern Ireland",
+                "pid": "cwrc:aab17204-4d5a-40cc-ac21-afa5ecdae38f",
+                "uri": "http://www.geonames.org/2635167"
+            },
+            {
+                "fedoraLabel": "Villa María",
+                "pid": "cwrc:6b83a592-0867-4baa-b28c-e0adaab4c1aa",
+                "uri": "http://www.geonames.org/3832694"
+            },
+            {
+                "fedoraLabel": "Montparnasse",
+                "pid": "cwrc:84c27d66-fffc-4583-8064-96fae883295d",
+                "uri": "http://www.geonames.org/6545263"
+            },
+            {
+                "fedoraLabel": "Republic of France",
+                "pid": "cwrc:02567d22-c1d5-4a86-86fd-98b4b05510b7",
+                "uri": "http://www.geonames.org/3017382"
+            },
+            {
+                "fedoraLabel": "Kingdom of Belgium",
+                "pid": "cwrc:42de8826-d96a-4791-8741-c34b8ad3427f",
+                "uri": "http://www.geonames.org/2802361"
+            },
+            {
+                "fedoraLabel": "L'Acadie",
+                "pid": "cwrc:99129fa9-1332-493a-9360-25f822cc0c7d",
+                "uri": "http://www.geonames.org/5995294"
+            },
+            {
+                "fedoraLabel": "Calgary",
+                "pid": "cwrc:27935fc9-c577-4f9b-b297-6054eacc9d01",
+                "uri": "http://www.geonames.org/5913490"
+            },
+            {
+                "fedoraLabel": "St. Lawrence River",
+                "pid": "cwrc:7fdd9e81-1940-4b0a-a42e-b9872912e586",
+                "uri": "http://www.geonames.org/6156984"
+            },
+            {
+                "fedoraLabel": "Villa María",
+                "pid": "cwrc:8a7deebd-44c1-4f0b-b1a6-4e0e766c2851",
+                "uri": "http://www.geonames.org/3832694"
+            },
+            {
+                "fedoraLabel": "St. Lawrence River",
+                "pid": "cwrc:e8599bb2-1298-4b95-9ce8-0926cdf87ae6",
+                "uri": "http://www.geonames.org/6156984"
+            },
+            {
+                "fedoraLabel": "Chicago",
+                "pid": "cwrc:d573ec52-97d3-45e4-95de-c3ee409bb0b1",
+                "uri": "http://www.geonames.org/4887398"
+            },
+            {
+                "fedoraLabel": "Hellenic Republic",
+                "pid": "cwrc:5c31f2b6-5139-4205-97fd-d715907c8417",
+                "uri": "http://www.geonames.org/390903"
+            },
+            {
+                "fedoraLabel": "Rome",
+                "pid": "cwrc:d2640b0d-a4ee-4499-810f-6569a48103b7",
+                "uri": "http://www.geonames.org/3169070"
+            },
+            {
+                "fedoraLabel": "Frankfurt am Main",
+                "pid": "cwrc:d05afcd8-0e26-4abe-99d2-a153f95dca69",
+                "uri": "http://www.geonames.org/2925533"
+            },
+            {
+                "fedoraLabel": "Tehran",
+                "pid": "cwrc:535633ec-e157-4617-95bf-2040e1ebd5b1",
+                "uri": "http://www.geonames.org/112931"
+            },
+            {
+                "fedoraLabel": "Kingdom of Sweden",
+                "pid": "cwrc:bda38194-9d81-46d4-bb9d-1fcabc50bdc5",
+                "uri": "http://www.geonames.org/2661886"
+            },
+            {
+                "fedoraLabel": "Republic of Chile",
+                "pid": "cwrc:f8063527-284a-4712-a10d-d3b79e89ff33",
+                "uri": "http://www.geonames.org/3895114"
+            },
+            {
+                "fedoraLabel": "Alexandria",
+                "pid": "cwrc:8cc7e11a-b9f8-4891-9760-470e91b47bbc",
+                "uri": "http://www.geonames.org/361058"
+            },
+            {
+                "fedoraLabel": "Richville",
+                "pid": "cwrc:98dc6220-c8a3-44bf-8cb7-64c95b0aca37",
+                "uri": "http://www.geonames.org/5133823"
+            },
+            {
+                "fedoraLabel": "Federal Republic of Germany",
+                "pid": "cwrc:395ccf40-cda0-422b-a1bf-d08d8b9c3f7a",
+                "uri": "http://www.geonames.org/2921044"
+            },
+            {
+                "fedoraLabel": "Japan",
+                "pid": "cwrc:a61998c1-f824-4c35-a4f3-993b12d81064",
+                "uri": "http://www.geonames.org/1861060"
+            },
+            {
+                "fedoraLabel": "Regina",
+                "pid": "cwrc:a24db855-74b7-4851-9bcf-8e1598d083ed",
+                "uri": "http://www.geonames.org/6119109"
+            },
+            {
+                "fedoraLabel": "Athens",
+                "pid": "cwrc:22f52872-1a6f-462d-ab30-74ee97d800c9",
+                "uri": "http://www.geonames.org/5887943"
+            },
+            {
+                "fedoraLabel": "Regina",
+                "pid": "cwrc:ba077eb4-c87b-460f-a31a-4ff0b88b84bd",
+                "uri": "http://www.geonames.org/6119109"
+            },
+            {
+                "fedoraLabel": "Prince Albert",
+                "pid": "cwrc:6d85f458-df19-457e-b44a-afb5814f8d82",
+                "uri": "http://www.geonames.org/6113335"
+            },
+            {
+                "fedoraLabel": "Fort McPherson",
+                "pid": "cwrc:393d91f1-bbd9-4a93-84be-20be4cb42d9d",
+                "uri": "http://www.geonames.org/5955898"
+            },
+            {
+                "fedoraLabel": "Kingdom of Spain",
+                "pid": "cwrc:dfdd177e-4510-4675-a83e-4ec455589ee0",
+                "uri": "http://www.geonames.org/2510769"
+            },
+            {
+                "fedoraLabel": "Kingdom of Spain",
+                "pid": "cwrc:d1755e60-b3b2-4013-8828-83cd78bc9792",
+                "uri": "http://www.geonames.org/2510769"
+            },
+            {
+                "fedoraLabel": "Norfolk",
+                "pid": "cwrc:7b40e36c-afeb-46df-88fa-12e38ed45c7f",
+                "uri": "http://www.geonames.org/4945453"
+            },
+            {
+                "fedoraLabel": "Alaska",
+                "pid": "cwrc:4cc28e9e-9242-48c4-a21e-663fdc1c9412",
+                "uri": "http://www.geonames.org/5879092"
+            }
+        ]
+    },
+    "material": {
+        "bibliographic_about": [
+          "islandora:2",
+          "islandora:2"
+        ],
+        "bibliographic_related": [
+          "islandora:2",
+          "islandora:2"
+        ],
+        "entries_about": [
+          "islandora:2",
+          "islandora:2"
+        ],
+        "entries_mentioning": [
+          "islandora:2",
+          "islandora:2"
+        ],
+        "entries_other": [
+          "islandora:2",
+          "islandora:2"
+        ],
+        "multimedia": [
+          "islandora:2",
+          "islandora:2"
+        ]
+    },
+    "profile": {
+        "fedora_label": "Canada"
+    },
+    "query_URI": "http://www.geonames.org/6251999",
+    "query_pid": "cwrc:cd21f862-8add-44d9-9d11-f6f9d5fad3aa",
+    "same_as": [
+        "http://www.geonames.org/6251999",
+        "cwrc:cd21f862-8add-44d9-9d11-f6f9d5fad3aa"
     ]
-  },
-  "connections": {
-    "coMentionPerson": [
-      { "uri": "http://viaf.org/viaf/7387642", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/36720142", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/33915041", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/44317974", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/120027154", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/51711659", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/59363153", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/37158276", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/54470012", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/63155325", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/22186962", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/44560494", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/27086693", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/73853019", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/106348924", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/63155325", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/58498867", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/66559269", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/370403", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/41873725", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/39385478", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/21886701", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/116854541", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/108944267", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/66468501", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/115570529", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/105492844", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/79348177", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/239096110", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/104953085", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/29706706", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/101564703", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/91308069", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/115291182", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/69729715", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/5003901", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/103651939", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/92466956", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/39402318", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/19720315", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/111074700", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/71404026", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/97277621", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/35268398", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/64048778", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/56618171", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/47561937", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/79126147", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/92360323", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/102316456", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/22149082", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/97006051", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/49236705", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/24011176", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/66687976", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/246477353", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/56891114", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/32220127", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/105437213", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/8566613", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/67996917", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/102587001", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/108238827", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/46814469", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/68944521", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/52421080", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/109310084", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/109322990", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/54329196", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/70124222", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/28685297", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/87061403", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/2714957", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/5193747", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/79252548", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/30652438", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/70558556", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/102769745", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/205196210", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/76384880", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/33401634", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/115783157", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/217513681", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/44478665", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/93288616", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/93675286", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/39386255", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/20989", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/116861733", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/117980066", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/43473203", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/62350932", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/119716738", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/31722451", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/42015481", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/12532520", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/91241341", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/108435215", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/17226855", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/105684357", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/115138083", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/61787936", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/9717119", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/17002126", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/31157281", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/94296765", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/34469280", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/73889695", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/36934048", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/103982524", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/18627631", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/12428950", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/46764285", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/13017", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/95247377", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/14771315", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/105151053", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/100236274", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/66467430", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/36921579", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/108305312", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/24681618", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/44297675", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/109123740", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/68998327", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/108273432", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/98486723", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/17240199", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/5029235", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/95177323", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/2537401", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/32010086", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/104290343", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/1799418", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/106101861", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/61710472", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/32833814", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/61584279", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/85372278", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/56942779", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/114760114", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/150749702", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/79126936", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/14864700", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/39385421", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/120613489", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/110789564", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/18033617", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/111941870", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/76350280", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/27203212", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/83176668", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/27226716", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/27994903", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/29540187", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/29581388", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/7605720", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/96951910", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/87194517", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/100329178", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/98653009", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/293858561", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/314805436", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/53043072", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/33099133", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/37283888", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/85389257", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/29511349", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/72912733", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/18710836", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/57790387", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/69729082", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/26158485", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/104455562", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/104489330", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/41462204", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/96994048", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/24596917", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/2467372", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/66513221", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/93165633", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/32010922", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/59208470", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/36720142", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/105426589", "fedoraLabel": "Test", "PID": "cwrc:123" }
-    ],
-    "coMentionOrganization": [
-      { "uri": "http://viaf.org/viaf/147166987", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/134800888", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/126280342", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/181010594", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/156870930", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/143270900", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/133405555", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/135669116", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/150876296", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/154632617", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/127757839", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/130333233", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/155492116", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/145371179", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/135992541", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/153567419", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/158301808", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/121893957", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/128922832", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/123886017", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/147666095", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/144191869", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/135740561", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/311377903", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/268199074", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/131660786", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/158331342", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/158199848", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/142395924", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/150055466", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/125576743", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/124267011", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/126355495", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/140850328", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/134818360", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/139169065", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/124250538", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/125486960", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/149530551", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://viaf.org/viaf/124254622", "fedoraLabel": "Test", "PID": "cwrc:123" }
-    ],
-    "coMentionPlace": [
-      { "uri": "http://www.geonames.org/6251999", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6252001", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2453866", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2964574", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2963597", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2635167", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5883102", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6115047", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6077243", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/3017382", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6269131", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2802361", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2186224", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2988507", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6167865", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6173331", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6325494", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2988507/paris.html", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6545263", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/3832694", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2643743", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5913490", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5995294", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6093943", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6156984", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6087430", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6065171", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6113358", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2921044", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/3895114", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2925533", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/1861060", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2661886", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5946768", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5909050", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5128581", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/3169070", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/390903", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/361058", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/112931", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5133823", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5887943", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/4887398", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6113335", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6141242", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6119109", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/6183235", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5955898", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/4945453", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/5879092", "fedoraLabel": "Test", "PID": "cwrc:123" },
-      { "uri": "http://www.geonames.org/2510769", "fedoraLabel": "Test", "PID": "cwrc:123" }
-    ]
-  }
 }
