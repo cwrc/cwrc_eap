@@ -41,13 +41,15 @@ function _cwrc_eap_build_person(&$build) {
   );
 
   // Access conditions.
-  $build['#info_record']['accessConditions'] = array(
-    '#theme' => 'cwrc_eap_info',
-    '#label' => t('Access Conditions'),
-    '#elements' => strip_tags($recordInfo->accessCondition->asXML(), '<a>'),
-  );
-  if (isset($recordInfo->accessCondition['type'])) {
-    $build['#info_record']['accessConditions']['#elements'] .= ' (' . $recordInfo->accessCondition['type'] . ')';
+  if (isset($recordInfo->accessCondition)) {
+    $build['#info_record']['accessConditions'] = array(
+      '#theme' => 'cwrc_eap_info',
+      '#label' => t('Access Conditions'),
+      '#elements' => strip_tags($recordInfo->accessCondition->asXML(), '<a>'),
+    );
+    if (isset($recordInfo->accessCondition['type'])) {
+      $build['#info_record']['accessConditions']['#elements'] .= ' (' . $recordInfo->accessCondition['type'] . ')';
+    }
   }
 
   // Contributing Project(s).
