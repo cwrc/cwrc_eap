@@ -311,6 +311,7 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
       );
       $build['#image'] = render($image);
     }
+    /* comment out - speed up load
     else {
       // Lookup multimedia from XML db.
       $response = cwrc_eap_xmldb_json($object->id, array('multimedia'), TRUE);
@@ -339,6 +340,7 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
         }
       }
     }
+    */
 
     // Check for DC datastream, use description if found.
     if (isset($object['DC'])) {
