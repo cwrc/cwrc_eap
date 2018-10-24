@@ -65,6 +65,7 @@
     </div></div>
 
     <?php
+/*
 // "Associations" goes on the right. ?>
     <div class="right">
       <h2><?php print t('Associations'); ?></h2>
@@ -122,5 +123,6 @@
         </div>
       <?php } ?>
     </div>
+<?php */ ?>
   </div>
 </div>

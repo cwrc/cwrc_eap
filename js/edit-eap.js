@@ -11,9 +11,9 @@
     cD.setCwrcApi(settings.base_url + '/cwrc/api/');
 
     // Set CWRC entity schemas.
-    cD.setPersonSchema("http://cwrc.ca/schemas/entities.rng");
-    cD.setOrganizationSchema("http://cwrc.ca/schemas/entities.rng");
-    cD.setPlaceSchema("http://cwrc.ca/schemas/entities.rng");
+    cD.setPersonSchema("https://cwrc.ca/schemas/entities.rng");
+    cD.setOrganizationSchema("https://cwrc.ca/schemas/entities.rng");
+    cD.setPlaceSchema("https://cwrc.ca/schemas/entities.rng");
 
     // On success we need to reload to see the changes.
     settings.opts.success = function () {
@@ -30,19 +30,19 @@
       e.preventDefault();
       switch (settings.entity_type) {
         case 'person':
-          cD.popEditPerson(settings.opts);
+          window.open('/sites/default/libraries/cwrc-entity-management-forms-static/build/person?entityId=' + settings.opts.id);
           break;
 
         case 'organization':
-          cD.popEditOrganization(settings.opts);
+          window.open('/sites/default/libraries/cwrc-entity-management-forms-static/build/organization?entityId=' + settings.opts.id);
           break;
 
         case 'place':
-          cD.popEditPlace(settings.opts);
+          window.open('/sites/default/libraries/cwrc-entity-management-forms-static/build/place?entityId=' + settings.opts.id);
           break;
 
         case 'title':
-          cD.popEditTitle(settings.opts);
+         // cD.popEditTitle(settings.opts);
           break;
       }
     });
