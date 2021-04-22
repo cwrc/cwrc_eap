@@ -203,37 +203,6 @@ function cwrc_eap_edit_entity_access($object) {
 }
 
 /**
- * Implements hook_libraries_info().
- */
-function cwrc_eap_libraries_info() {
-  return array(
-    // Defines the CWRC Dialogs library.
-    'CWRC-Dialogs' => array(
-      'name' => 'CWRC Dialogs',
-      'version' => 'dev-master',
-      'vendor url' => 'http://www.cwrc.ca/projects/infrastructure-projects/technical-projects/cwrc-writer/',
-      'download url' => 'http://github.com/cwrc/CWRC-Dialogs',
-      'files' => array(
-        'js' => array(
-          'js/lib/jquery-ui-1.10.4.custom.js',
-          'js/lib/knockout-2.3.0.js',
-          'js/lib/bootstrap.js',
-          'js/lib/bootstrap-datepicker.js',
-          'js/cwrc-api.js',
-          'js/cD.js',
-        ),
-        'css' => array(
-          'css/bootstrap.css',
-          'css/datepicker.css',
-          'font-awesome/css/font-awesome.min.css',
-          'css/cD.css',
-        ),
-      ),
-    ),
-  );
-}
-
-/**
  * Implements hook_preprocess_menu_local_task().
  */
 function cwrc_eap_preprocess_menu_local_task(&$variables) {
@@ -243,7 +212,6 @@ function cwrc_eap_preprocess_menu_local_task(&$variables) {
     global $base_url;
 
     // Add our css and javascripts.
-    libraries_load('CWRC-Dialogs');
     drupal_add_js(drupal_get_path('module', 'cwrc_eap') . '/js/edit-eap.js');
 
     // Create settings for edit dialog.
@@ -311,36 +279,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
       );
       $build['#image'] = render($image);
     }
-    /* comment out - speed up load
-    else {
-      // Lookup multimedia from XML db.
-      $response = cwrc_eap_xmldb_json($object->id, array('multimedia'), TRUE);
-      foreach ($response['multimedia'] as $pid) {
-        // Render the first image found.
-        $media = islandora_object_load($pid);
-        if ($media && in_array('islandora:sp_basic_image', $media->models)) {
-          $image = array(
-            '#theme' => 'image',
-            '#path' => url('islandora/object/' . $media->id . '/datastream/MEDIUM_SIZE/view'),
-            '#alt' => t('@object thumbnail', array('@object' => $media->label)),
-            '#attributes' => array(),
-          );
-          $build['#image'] = render($image);
-          break;
-        }
-        elseif ($media && in_array('islandora:sp_large_image_cmodel', $media->models)) {
-          $image = array(
-            '#theme' => 'image',
-            '#path' => url('islandora/object/' . $media->id . '/datastream/JPG/view'),
-            '#alt' => t('@object thumbnail', array('@object' => $media->label)),
-            '#attributes' => array(),
-          );
-          $build['#image'] = render($image);
-          break;
-        }
-      }
-    }
-    */
 
     // Check for DC datastream, use description if found.
     if (isset($object['DC'])) {
@@ -354,38 +292,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
       if ($desc_node->item(0)) {
         $build['#summary'] = $desc_node->item(0)->nodeValue;
       }
-    }
-
-    // Put together association lists (to be populated using ajax).
-    $build['#associations_person'] = array(
-      'component' => 'coMentionPerson',
-    );
-    $build['#associations_place'] = array(
-      'component' => 'coMentionPlace',
-    );
-    $build['#associations_organization'] = array(
-      'component' => 'coMentionOrganization',
-    );
-
-    // Put together material lists (to be populated by ajax).
-    $materials = array('entries_about',
-      'entries_other',
-      'entries_mentioning',
-      'bibliographic_about',
-      'bibliographic_related',
-      'multimedia',
-    );
-    foreach ($materials as $type) {
-      $build['#materials'][$type] = array(
-        'label' => _cwrc_eap_map_material_label($type),
-        'type' => $type,
-      );
-    }
-
-    // Attach js for materials.
-    if (isset($build['#materials'])) {
-      libraries_load('CWRC-Dialogs');
-      drupal_add_js(drupal_get_path('module', 'cwrc_eap') . '/js/eap-tabs.js');
     }
 
     // Route to appropriate additional handler here.
@@ -405,9 +311,6 @@ function cwrc_eap_islandora_view_object($object, $user, $page_number = NULL, $pa
     }
   }
 
-  // Javascript required for AJAX.
-  $build['#attached']['js'][] = array('type' => 'setting', 'data' => array('cwrc_eap_ajax_pid' => $object->id));
-  $build['#attached']['js'][] = drupal_get_path('module', 'cwrc_eap') . '/js/eap-ajax.js';
   return render($build);
 }
 
