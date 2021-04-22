@@ -7,14 +7,6 @@
   $(document).ready(function () {
     var settings = Drupal.settings.cwrc_eap;
 
-    // Set the BASE URL to the CWRC API for loading/saving/creating/searching.
-    cD.setCwrcApi(settings.base_url + '/cwrc/api/');
-
-    // Set CWRC entity schemas.
-    cD.setPersonSchema("https://cwrc.ca/schemas/entities.rng");
-    cD.setOrganizationSchema("https://cwrc.ca/schemas/entities.rng");
-    cD.setPlaceSchema("https://cwrc.ca/schemas/entities.rng");
-
     // On success we need to reload to see the changes.
     settings.opts.success = function () {
       location.reload();
@@ -42,7 +34,6 @@
           break;
 
         case 'title':
-         // cD.popEditTitle(settings.opts);
           break;
       }
     });
